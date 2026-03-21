@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>mima's | Artisanal Cheese Pairings &amp; Boards UAE</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&amp;family=Sacramento&amp;family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&amp;family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#800314",
+              "olive": "#4F471F",
+              "almond": "#FCFAF0",
+              "surface": "#FCFAF0",
+              "on-surface": "#4F471F",
+              "background": "#FCFAF0",
+            },
+            fontFamily: {
+              "headline": ["Montserrat", "sans-serif"],
+              "body": ["Montserrat", "sans-serif"],
+              "label": ["Montserrat", "sans-serif"],
+              "script": ["Floralis Couture", "Sacramento", "cursive"],
+              "logo": ["Cormorant Garamond", "serif"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        @font-face {
+            font-family: 'Floralis Couture';
+            src: url('fonts/Floralis-Couture.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-fallback {
+            background-color: #e4d5b7;
+        }
+        section {
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+        /* Custom mima's logo wordmark — high-contrast serif */
+        .mimas-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            font-style: normal;
+            letter-spacing: 0.02em;
+            line-height: 1;
+        }
+        .mimas-logo-hero {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            font-style: normal;
+            letter-spacing: 0.03em;
+            line-height: 0.85;
+        }
+        /* Tagline script — "flavor" word */
+        .tagline-flavor {
+            font-family: 'Floralis Couture', 'Sacramento', cursive;
+        }
+        /* Footer input styling */
+        .footer-email-input {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid #4F471F40;
+            outline: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            font-size: 0.875rem;
+            color: #4F471F;
+            padding: 8px 0;
+            width: 100%;
+        }
+        .footer-email-input::placeholder {
+            color: #4F471F80;
+        }
+        .footer-email-input:focus {
+            border-bottom-color: #800314;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-olive">
+<!-- 1. NAVIGATION BAR -->
+<header class="fixed top-0 left-0 right-0 z-[100] bg-almond/80 backdrop-blur-md transition-all duration-300 border-b border-olive/5">
+<nav class="flex justify-between items-center w-full px-8 py-6 max-w-7xl mx-auto">
+<!-- Brand Logo -->
+<div class="flex-1">
+<a class="mimas-logo lowercase text-3xl text-olive hover:text-primary transition-colors" href="#">mima's</a>
+</div>
+<!-- Navigation Links -->
+<div class="hidden md:flex items-center gap-12 flex-none">
+<a class="font-['Montserrat'] font-medium uppercase tracking-[0.15em] text-[13px] text-olive hover:text-primary transition-colors duration-300" href="pages/story.html">Story</a>
+<a class="font-['Montserrat'] font-medium uppercase tracking-[0.15em] text-[13px] text-olive hover:text-primary transition-colors duration-300" href="pages/boards.html">Boards</a>
+<a class="font-['Montserrat'] font-medium uppercase tracking-[0.15em] text-[13px] text-olive hover:text-primary transition-colors duration-300" href="pages/services.html">Services</a>
+<a class="font-['Montserrat'] font-medium uppercase tracking-[0.15em] text-[13px] text-olive hover:text-primary transition-colors duration-300" href="pages/journal.html">Journal</a>
+<a class="font-['Montserrat'] font-medium uppercase tracking-[0.15em] text-[13px] text-olive hover:text-primary transition-colors duration-300" href="pages/contact.html">Contact</a>
+</div>
+<div class="flex-1"></div>
+</nav>
+</header>
+<!-- 2. HERO SECTION -->
+<section class="relative h-screen w-full flex items-center justify-center">
+<div class="absolute inset-0 bg-fallback">
+<img alt="Artisanal cheese board" class="w-full h-full object-cover" loading="eager" fetchpriority="high" src="https://images.unsplash.com/photo-1452195100486-9cc805987862?w=2400&q=95&auto=format&fit=crop"/>
+<div class="absolute inset-0 bg-[#4F471F]/40"></div>
+</div>
+<div class="relative z-10 text-center space-y-6 px-8">
+<h1 class="mimas-logo-hero text-[6rem] md:text-[10rem] text-white leading-none drop-shadow-md select-none lowercase">mima's</h1>
+<div class="flex flex-col md:flex-row items-center justify-center gap-1 md:gap-3 -mt-4">
+<span class="font-['Montserrat'] lowercase tracking-[0.2em] text-sm md:text-base text-white/90 font-light">moments made in</span>
+<span class="tagline-flavor text-4xl md:text-6xl text-primary lowercase leading-none">flavor</span>
+</div>
+</div>
+</section>
+<!-- 3. BRAND STATEMENT -->
+<section class="py-20 md:py-28 px-8 bg-almond flex justify-center text-center">
+<div class="max-w-3xl">
+<p class="font-script text-primary text-3xl md:text-4xl mb-3 lowercase">the art of pairing</p>
+<h3 class="font-['Montserrat'] font-semibold uppercase tracking-[0.2em] text-olive text-base md:text-lg mb-6">Where Every Flavour Tells a Story</h3>
+<p class="font-['Montserrat'] font-light text-olive/60 text-sm md:text-base leading-relaxed">In a world where flavors speak in whispers and textures tell their own tales, mima's unveils a realm of originality, where the art of pairing becomes a gateway to a new world of flavors. Each board is a crafted harmony of taste and texture, composed with precision, passion, and imagination.</p>
+</div>
+</section>
+<!-- 4. CORE VALUES — Full-bleed image with overlay -->
+<section class="relative h-[50vh] md:h-[60vh] flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 bg-fallback">
+<img alt="Cheese atelier close-up" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1625937286074-9ca519d5d9df?w=2400&q=90&auto=format&fit=crop"/>
+<div class="absolute inset-0 bg-olive/75"></div>
+</div>
+<div class="relative z-10 text-center px-8 max-w-4xl mx-auto">
+<p class="font-script text-almond/50 text-2xl md:text-3xl mb-8 lowercase">what drives us</p>
+<div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 mb-8">
+<span class="font-['Montserrat'] font-semibold uppercase tracking-[0.3em] text-lg md:text-2xl text-almond">Originality</span>
+<span class="text-almond/30 text-2xl">—</span>
+<span class="font-['Montserrat'] font-semibold uppercase tracking-[0.3em] text-lg md:text-2xl text-almond">Pairing</span>
+<span class="text-almond/30 text-2xl">—</span>
+<span class="font-['Montserrat'] font-semibold uppercase tracking-[0.3em] text-lg md:text-2xl text-almond">Connection</span>
+</div>
+<p class="font-['Montserrat'] font-light text-almond/60 text-sm md:text-base max-w-xl mx-auto leading-relaxed">Three principles that guide every pairing we create, every board we compose, and every moment we help bring to life.</p>
+</div>
+</section>
+<!-- 5. 4-COLUMN CARD GRID -->
+<section class="py-24 md:py-32 px-8 bg-almond">
+<div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Card 1 -->
+<div class="group cursor-pointer transition-transform duration-500 hover:-translate-y-2">
+<div class="aspect-square overflow-hidden bg-fallback mb-6">
+<img alt="Our Boards" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=800&q=90&auto=format&fit=crop"/>
+</div>
+<h3 class="font-['Montserrat'] font-semibold text-olive text-base uppercase tracking-wider mb-2">Our Boards</h3>
+<p class="font-['Montserrat'] font-light text-olive/80 text-sm leading-relaxed">Artfully curated selections for every celebration.</p>
+</div>
+<!-- Card 2 -->
+<div class="group cursor-pointer transition-transform duration-500 hover:-translate-y-2">
+<div class="aspect-square overflow-hidden bg-fallback mb-6">
+<img alt="Our Cheeses" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1452195100486-9cc805987862?w=800&q=90&auto=format&fit=crop&crop=center"/>
+</div>
+<h3 class="font-['Montserrat'] font-semibold text-olive text-base uppercase tracking-wider mb-2">Our Cheeses</h3>
+<p class="font-['Montserrat'] font-light text-olive/80 text-sm leading-relaxed">Handpicked varieties from world-class dairies.</p>
+</div>
+<!-- Card 3 -->
+<div class="group cursor-pointer transition-transform duration-500 hover:-translate-y-2">
+<div class="aspect-square overflow-hidden bg-fallback mb-6">
+<img alt="Masterclass" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1574926054530-540288c8e678?w=800&q=90&auto=format&fit=crop"/>
+</div>
+<h3 class="font-['Montserrat'] font-semibold text-olive text-base uppercase tracking-wider mb-2">Masterclass</h3>
+<p class="font-['Montserrat'] font-light text-olive/80 text-sm leading-relaxed">Learn the sophisticated art of the perfect pair.</p>
+</div>
+<!-- Card 4 -->
+<div class="group cursor-pointer transition-transform duration-500 hover:-translate-y-2">
+<div class="aspect-square overflow-hidden bg-fallback mb-6">
+<img alt="Events" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1530062845289-9109b2c9c868?w=800&q=90&auto=format&fit=crop"/>
+</div>
+<h3 class="font-['Montserrat'] font-semibold text-olive text-base uppercase tracking-wider mb-2">Events</h3>
+<p class="font-['Montserrat'] font-light text-olive/80 text-sm leading-relaxed">Bespoke catering for your most intimate moments.</p>
+</div>
+</div>
+</section>
+<!-- 5b. TAGLINE BREAK -->
+<section class="py-16 md:py-24 px-8 bg-almond text-center">
+<p class="font-script text-primary text-3xl md:text-4xl lowercase mb-3">from the rare to the remarkable</p>
+<h3 class="font-['Montserrat'] font-semibold uppercase tracking-[0.2em] text-olive text-base md:text-lg mb-6">Curated with Passion, Served with Love</h3>
+<p class="font-['Montserrat'] font-light text-olive/60 text-sm md:text-base max-w-2xl mx-auto leading-relaxed mb-2">Every ingredient is handpicked from world-class dairies across Europe. Every pairing is intentional — composed with the precision of a sommelier and the soul of an artisan. We don't just build boards, we craft experiences.</p>
+</section>
+<!-- 6. IMAGE GALLERY -->
+<section class="px-4 md:px-8 pb-24 md:pb-32 bg-almond">
+<div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+<div class="bg-fallback aspect-[3/2] overflow-hidden rounded-sm">
+<img alt="Aged cheese wheels" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" src="https://images.unsplash.com/photo-1452195100486-9cc805987862?w=900&q=90&auto=format&fit=crop"/>
+</div>
+<div class="bg-fallback aspect-[3/2] overflow-hidden rounded-sm">
+<img alt="Cheese board with figs and honey" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" src="https://images.unsplash.com/photo-1543339308-d595c2e18be1?w=900&q=90&auto=format&fit=crop"/>
+</div>
+<div class="bg-fallback aspect-[3/2] overflow-hidden rounded-sm">
+<img alt="Artisan cheese selection" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" src="https://images.unsplash.com/photo-1626957341926-98752fc2ba90?w=900&q=90&auto=format&fit=crop"/>
+</div>
+<div class="bg-fallback aspect-[3/2] overflow-hidden rounded-sm">
+<img alt="Brie and grapes pairing" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" src="https://images.unsplash.com/photo-1550583724-b2692b85b150?w=900&q=90&auto=format&fit=crop"/>
+</div>
+<div class="bg-fallback aspect-[3/2] overflow-hidden rounded-sm">
+<img alt="Cheese platter close-up" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" src="https://images.unsplash.com/photo-1587132137056-bfbf0166836e?w=900&q=90&auto=format&fit=crop"/>
+</div>
+<div class="bg-fallback aspect-[3/2] overflow-hidden rounded-sm">
+<img alt="Cheese and wine arrangement" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=900&q=90&auto=format&fit=crop"/>
+</div>
+</div>
+</section>
+<!-- 7. QUOTE SECTION — Full-bleed image with overlay -->
+<section class="relative h-[60vh] md:h-[70vh] flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 bg-fallback">
+<img alt="Artisan cheese board with fruits and honey" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1631379578550-7038263db699?w=2400&q=90&auto=format&fit=crop"/>
+<div class="absolute inset-0 bg-olive/70"></div>
+</div>
+<div class="relative z-10 text-center px-8 max-w-4xl mx-auto">
+<p class="font-script text-almond/60 text-2xl md:text-3xl mb-6 lowercase">where bold meets delicate</p>
+<h2 class="font-['Montserrat'] italic text-almond text-3xl md:text-4xl lg:text-6xl font-light leading-tight tracking-wide">
+                "Anchored in tradition, turned toward modernity"
+            </h2>
+<p class="font-['Montserrat'] uppercase tracking-[0.3em] text-almond/40 text-xs mt-10">— the philosophy of mima's</p>
+</div>
+</section>
+<!-- 8. JOURNAL TEASER -->
+<section class="py-24 md:py-32 px-8 bg-almond">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col items-center mb-16">
+<p class="font-script text-primary text-3xl md:text-4xl mb-3 lowercase">le carnet</p>
+<h3 class="font-['Montserrat'] font-semibold uppercase tracking-[0.2em] text-olive text-base md:text-lg mb-6">Journal</h3>
+<p class="font-['Montserrat'] font-light text-olive/60 text-sm md:text-base max-w-2xl mx-auto leading-relaxed text-center">Stories of terroir, tales of pairing, and the art of indulgence. Our guides to understanding, tasting, and sharing artisanal cheese.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Journal Card 1: Texture Guide -->
+<a href="pages/journal.html#texture-guide-to-cheese" class="group cursor-pointer block">
+<div class="relative aspect-[4/3] bg-fallback overflow-hidden rounded-sm mb-5">
+<img alt="A texture guide to cheese" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1539024511553-58bbcf23dfd7?w=800&q=90&auto=format&fit=crop"/>
+</div>
+<p class="font-['Montserrat'] font-medium uppercase tracking-wider text-[#800314]/70 text-[10px] mb-2">Pairing &amp; Texture</p>
+<h3 class="font-['Montserrat'] font-semibold text-olive text-base mb-2 group-hover:text-[#800314] transition-colors">Soft, Hard &amp; Everything Between: A Texture Guide</h3>
+<p class="font-['Montserrat'] font-light text-olive/60 text-sm leading-relaxed">Texture is the overlooked dimension of cheese. From spoonable to crystalline — understanding texture changes how you build a board.</p>
+</a>
+<!-- Journal Card 2: 6 Families -->
+<a href="pages/journal.html#six-families-of-cheese" class="group cursor-pointer block">
+<div class="relative aspect-[4/3] bg-fallback overflow-hidden rounded-sm mb-5">
+<img alt="The six families of cheese" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=800&q=90&auto=format&fit=crop&crop=bottom"/>
+</div>
+<p class="font-['Montserrat'] font-medium uppercase tracking-wider text-[#800314]/70 text-[10px] mb-2">Cheese 101</p>
+<h3 class="font-['Montserrat'] font-semibold text-olive text-base mb-2 group-hover:text-[#800314] transition-colors">The 6 Families of Cheese (and How to Taste Them)</h3>
+<p class="font-['Montserrat'] font-light text-olive/60 text-sm leading-relaxed">From the pillowy softness of a Brie to the crystalline crunch of aged Comt&eacute; — the six families that define the cheese world.</p>
+</a>
+<!-- Journal Card 3: Arabic Flavours -->
+<a href="pages/journal.html#cheese-arabic-flavours" class="group cursor-pointer block">
+<div class="relative aspect-[4/3] bg-fallback overflow-hidden rounded-sm mb-5">
+<img alt="Arabic flavours and cheese pairing" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1547483238-f400e65ccd56?w=800&q=90&auto=format&fit=crop"/>
+</div>
+<p class="font-['Montserrat'] font-medium uppercase tracking-wider text-[#800314]/70 text-[10px] mb-2">Pairing &amp; Texture</p>
+<h3 class="font-['Montserrat'] font-semibold text-olive text-base mb-2 group-hover:text-[#800314] transition-colors">Pairing Cheese with Arabic Flavours: Dates, Za'atar &amp; Saffron</h3>
+<p class="font-['Montserrat'] font-light text-olive/60 text-sm leading-relaxed">The spice souks of the Middle East hold unexpected treasures for cheese pairing.</p>
+</a>
+</div>
+</div>
+</section>
+<!-- 9. FOOTER -->
+<footer class="bg-almond relative z-10">
+<!-- Main footer content -->
+<div class="max-w-7xl mx-auto px-8 pt-20 pb-12">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+<!-- Column 1: Brand -->
+<div class="flex flex-col">
+<a class="mimas-logo lowercase text-3xl text-olive" href="#">mima's</a>
+<p class="font-['Montserrat'] font-light text-olive/70 text-sm leading-relaxed mt-4 max-w-[220px]">Curating original cheese pairings that awaken the senses, spark curiosity, and inspire connection.</p>
+<div class="flex gap-4 mt-6">
+<a href="#" class="w-10 h-10 rounded-full border border-olive/20 flex items-center justify-center text-olive hover:text-primary hover:border-primary transition-colors" aria-label="Instagram">
+<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+</a>
+<a href="#" class="w-10 h-10 rounded-full border border-olive/20 flex items-center justify-center text-olive hover:text-primary hover:border-primary transition-colors" aria-label="Facebook">
+<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+</a>
+</div>
+</div>
+<!-- Column 2: Navigation -->
+<div class="flex flex-col">
+<h4 class="font-['Montserrat'] font-semibold uppercase tracking-[0.15em] text-olive text-xs mb-6">Navigation</h4>
+<nav class="flex flex-col gap-4">
+<a class="font-['Montserrat'] font-light text-olive/80 text-sm hover:text-primary transition-colors" href="pages/story.html">Our Story</a>
+<a class="font-['Montserrat'] font-light text-olive/80 text-sm hover:text-primary transition-colors" href="pages/boards.html">Our Boards</a>
+<a class="font-['Montserrat'] font-light text-olive/80 text-sm hover:text-primary transition-colors" href="pages/services.html">Services</a>
+<a class="font-['Montserrat'] font-light text-olive/80 text-sm hover:text-primary transition-colors" href="pages/journal.html">Journal</a>
+</nav>
+</div>
+<!-- Column 3: Contact -->
+<div class="flex flex-col">
+<h4 class="font-['Montserrat'] font-semibold uppercase tracking-[0.15em] text-olive text-xs mb-6">Contact</h4>
+<div class="flex flex-col gap-4">
+<a href="mailto:hello@mimas.ae" class="flex items-center gap-3 font-['Montserrat'] font-light text-olive/80 text-sm hover:text-primary transition-colors">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+hello@mimas.ae
+</a>
+<a href="tel:+97150000000" class="flex items-center gap-3 font-['Montserrat'] font-light text-olive/80 text-sm hover:text-primary transition-colors">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
++971 50 000 0000
+</a>
+<div class="flex items-start gap-3 font-['Montserrat'] font-light text-olive/80 text-sm">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 flex-shrink-0"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+<span>Dubai, United<br/>Arab Emirates</span>
+</div>
+</div>
+</div>
+<!-- Column 4: Newsletter -->
+<div class="flex flex-col">
+<h4 class="font-['Montserrat'] font-semibold uppercase tracking-[0.15em] text-olive text-xs mb-6">Newsletter</h4>
+<p class="font-['Montserrat'] font-light text-olive/70 text-sm leading-relaxed mb-6">Join our community for pairing tips and seasonal updates.</p>
+<form class="flex flex-col gap-3" onsubmit="event.preventDefault()">
+<input type="email" placeholder="Your email" class="footer-email-input" />
+<button type="submit" class="font-['Montserrat'] font-medium uppercase tracking-[0.15em] text-[13px] text-white bg-primary hover:bg-primary/90 transition-colors py-3 px-6 mt-1" style="border-radius: 0.125rem;">Subscribe</button>
+</form>
+</div>
+</div>
+</div>
+<!-- Bottom bar -->
+<div class="border-t border-olive/10">
+<div class="max-w-7xl mx-auto px-8 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-['Montserrat'] font-medium uppercase tracking-[0.15em] text-[10px] text-olive/50">© 2026 mima's. All rights reserved.</p>
+<div class="flex gap-8">
+<a class="font-['Montserrat'] font-medium uppercase tracking-[0.15em] text-[10px] text-olive/50 hover:text-primary transition-colors" href="#">Legal Notice</a>
+<a class="font-['Montserrat'] font-medium uppercase tracking-[0.15em] text-[10px] text-olive/50 hover:text-primary transition-colors" href="#">Cookie Policy</a>
+</div>
+</div>
+</div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4/dist/umd/supabase.min.js"></script>
+<script src="js/supabase-config.js"></script>
+<script src="js/mimas-cart.js"></script>
+</body></html>

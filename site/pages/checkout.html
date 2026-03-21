@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Checkout | mima's Artisanal Pairings</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&amp;family=Sacramento&amp;family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&amp;family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#800314",
+              "olive": "#4F471F",
+              "almond": "#FCFAF0",
+              "surface": "#FCFAF0",
+              "on-surface": "#4F471F",
+              "background": "#FCFAF0",
+            },
+            fontFamily: {
+              "headline": ["Montserrat", "sans-serif"],
+              "body": ["Montserrat", "sans-serif"],
+              "label": ["Montserrat", "sans-serif"],
+              "script": ["Floralis Couture", "Sacramento", "cursive"],
+              "logo": ["Cormorant Garamond", "serif"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        @font-face {
+            font-family: 'Floralis Couture';
+            src: url('../fonts/Floralis-Couture.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        .mimas-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            font-style: normal;
+            letter-spacing: 0.02em;
+            line-height: 1;
+        }
+        .footer-email-input {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid #4F471F40;
+            outline: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            font-size: 0.875rem;
+            color: #4F471F;
+            padding: 8px 0;
+            width: 100%;
+        }
+        .footer-email-input::placeholder {
+            color: #4F471F80;
+        }
+        .footer-email-input:focus {
+            border-bottom-color: #800314;
+        }
+        .checkout-input {
+            background: rgba(79,71,31,0.04);
+            border: 1px solid rgba(79,71,31,0.15);
+            color: #4F471F;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            font-size: 0.875rem;
+            padding: 0.75rem 1rem;
+            width: 100%;
+            outline: none;
+            border-radius: 0.125rem;
+            transition: border-color 0.2s;
+        }
+        .checkout-input:focus {
+            border-color: #800314;
+        }
+        .checkout-input::placeholder {
+            color: rgba(79,71,31,0.4);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-olive">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-[#FCFAF0]/80 backdrop-blur-md transition-all duration-300 border-b border-[#4F471F]/5">
+<nav class="flex justify-between items-center w-full px-8 py-6 max-w-7xl mx-auto">
+<div class="flex-1">
+<a class="mimas-logo lowercase text-3xl text-[#4F471F] hover:text-[#800314] transition-colors" href="../">mima's</a>
+</div>
+<div class="hidden md:flex items-center gap-12 flex-none">
+<a class="font-['Montserrat'] font-medium uppercase tracking-[0.15em] text-[13px] text-[#4F471F] hover:text-[#800314] transition-colors duration-300" href="story.html">Story</a>
+<a class="font-['Montserrat'] font-medium uppercase tracking-[0.15em] text-[13px] text-[#4F471F] hover:text-[#800314] transition-colors duration-300" href="boards.html">Boards</a>
+<a class="font-['Montserrat'] font-medium uppercase tracking-[0.15em] text-[13px] text-[#4F471F] hover:text-[#800314] transition-colors duration-300" href="services.html">Services</a>
+<a class="font-['Montserrat'] font-medium uppercase tracking-[0.15em] text-[13px] text-[#4F471F] hover:text-[#800314] transition-colors duration-300" href="journal.html">Journal</a>
+<a class="font-['Montserrat'] font-medium uppercase tracking-[0.15em] text-[13px] text-[#4F471F] hover:text-[#800314] transition-colors duration-300" href="contact.html">Contact</a>
+</div>
+<div class="flex-1"></div>
+</nav>
+</header>
+
+<!-- Checkout Content -->
+<main class="pt-32 pb-20 px-6 max-w-6xl mx-auto min-h-screen">
+<h1 class="font-['Montserrat'] font-semibold uppercase tracking-[0.2em] text-[#4F471F] text-base md:text-lg text-center mb-12">Checkout</h1>
+
+<!-- Empty cart state -->
+<div id="mimas-checkout-empty" class="text-center py-16" style="display:none;">
+<p class="font-['Montserrat'] font-light text-[#4F471F]/60 text-sm mb-6">Your cart is empty</p>
+<a href="boards.html" class="inline-block bg-[#800314] text-white font-['Montserrat'] font-medium uppercase tracking-[0.15em] text-[11px] py-3.5 px-10 hover:bg-[#800314]/90 transition-colors" style="border-radius:0.125rem;">Browse Boards</a>
+</div>
+
+<!-- Checkout form + summary -->
+<div id="mimas-checkout-content" class="grid grid-cols-1 lg:grid-cols-5 gap-12" style="display:none;">
+<!-- Left: Form -->
+<div class="lg:col-span-3">
+<h2 class="font-['Montserrat'] font-semibold uppercase tracking-[0.15em] text-[#4F471F] text-xs mb-6">Delivery Details</h2>
+<form id="mimas-checkout-form" class="space-y-5">
+<div>
+<label class="mb-1.5 block text-[10px] font-semibold uppercase tracking-[0.15em] text-[#4F471F]/70 font-['Montserrat']">Name</label>
+<input type="text" id="mimas-checkout-name" required maxlength="200" class="checkout-input"/>
+</div>
+<div>
+<label class="mb-1.5 block text-[10px] font-semibold uppercase tracking-[0.15em] text-[#4F471F]/70 font-['Montserrat']">Email</label>
+<input type="email" id="mimas-checkout-email" required maxlength="254" class="checkout-input"/>
+</div>
+<div>
+<label class="mb-1.5 block text-[10px] font-semibold uppercase tracking-[0.15em] text-[#4F471F]/70 font-['Montserrat']">Phone</label>
+<input type="tel" id="mimas-checkout-phone" required maxlength="30" placeholder="+971 XX XXX XXXX" class="checkout-input"/>
+</div>
+<div>
+<label class="mb-1.5 block text-[10px] font-semibold uppercase tracking-[0.15em] text-[#4F471F]/70 font-['Montserrat']">Delivery Date</label>
+<input type="date" id="mimas-checkout-date" required class="checkout-input"/>
+</div>
+<div>
+<label class="mb-1.5 block text-[10px] font-semibold uppercase tracking-[0.15em] text-[#4F471F]/70 font-['Montserrat']">Delivery Area</label>
+<select id="mimas-checkout-area" required class="checkout-input">
+<option value="" disabled selected>Select delivery area</option>
+</select>
+</div>
+<div>
+<label class="mb-1.5 block text-[10px] font-semibold uppercase tracking-[0.15em] text-[#4F471F]/70 font-['Montserrat']">Special Instructions <span class="font-normal opacity-60">(optional)</span></label>
+<textarea id="mimas-checkout-instructions" rows="3" maxlength="2000" placeholder="Allergies, gate codes, delivery preferences..." class="checkout-input" style="resize:none;"></textarea>
+</div>
+
+<!-- Submit is inside the order summary on right column -->
+</form>
+</div>
+
+<!-- Right: Order Summary -->
+<div class="lg:col-span-2">
+<div class="bg-[#4F471F]/[0.03] border border-[#4F471F]/10 p-6 lg:sticky lg:top-28" style="border-radius:0.25rem;">
+<h2 class="font-['Montserrat'] font-semibold uppercase tracking-[0.15em] text-[#4F471F] text-xs mb-6">Order Summary</h2>
+<div id="mimas-order-items" class="mb-6"></div>
+<div class="border-t border-[#4F471F]/10 pt-4 space-y-3">
+<div class="flex justify-between text-sm">
+<span class="font-['Montserrat'] text-[#4F471F]/70">Subtotal</span>
+<span id="mimas-order-subtotal" class="font-['Montserrat'] text-[#4F471F]">AED 0</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="font-['Montserrat'] text-[#4F471F]/70">Delivery</span>
+<span id="mimas-order-fee" class="font-['Montserrat'] text-[#4F471F]">AED 50</span>
+</div>
+<p id="mimas-order-fee-hint" class="font-['Montserrat'] font-light text-[#4F471F]/50 text-xs">Free delivery on orders over AED 500</p>
+<div class="flex justify-between pt-3 border-t border-[#4F471F]/10 text-base font-semibold">
+<span class="font-['Montserrat'] text-[#4F471F]">Total</span>
+<span id="mimas-order-total" class="font-['Montserrat'] text-[#4F471F]">AED 0</span>
+</div>
+</div>
+<button type="submit" form="mimas-checkout-form" class="mt-6 w-full bg-[#800314] text-white font-['Montserrat'] font-medium uppercase tracking-[0.15em] text-[11px] py-3.5 hover:bg-[#800314]/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed" style="border-radius:0.125rem;">Place Order</button>
+<p class="mt-3 text-center font-['Montserrat'] font-light text-[#4F471F]/50 text-xs">Payment will be arranged upon confirmation</p>
+</div>
+</div>
+</div>
+
+<!-- Success state -->
+<div id="mimas-checkout-success" class="text-center py-16" style="display:none;">
+<div class="mx-auto mb-8 w-20 h-20 rounded-full bg-[#4F471F]/[0.08] flex items-center justify-center">
+<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#4F471F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+</div>
+<h2 class="font-['Montserrat'] font-semibold uppercase tracking-[0.2em] text-[#4F471F] text-base md:text-lg mb-3">Thank you for your order</h2>
+<p class="font-['Montserrat'] font-medium text-[#800314] text-sm tracking-wide mb-2">Order <span id="mimas-order-id"></span></p>
+<p class="font-['Montserrat'] font-light text-[#4F471F]/70 text-sm leading-relaxed mb-10 max-w-md mx-auto">We'll be in touch within 24 hours to confirm your delivery details and arrange payment.</p>
+<a href="../" class="inline-block bg-[#800314] text-white font-['Montserrat'] font-medium uppercase tracking-[0.15em] text-[11px] py-3.5 px-10 hover:bg-[#800314]/90 transition-colors" style="border-radius:0.125rem;">Continue Shopping</a>
+</div>
+</main>
+
+<!-- Footer -->
+<footer class="bg-[#FCFAF0] relative z-10">
+<div class="max-w-7xl mx-auto px-8 pt-20 pb-12">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+<div class="flex flex-col">
+<a class="mimas-logo lowercase text-3xl text-[#4F471F]" href="../">mima's</a>
+<p class="font-['Montserrat'] font-light text-[#4F471F]/70 text-sm leading-relaxed mt-4 max-w-[220px]">Curating original cheese pairings that awaken the senses, spark curiosity, and inspire connection.</p>
+<div class="flex gap-4 mt-6">
+<a href="#" class="w-10 h-10 rounded-full border border-[#4F471F]/20 flex items-center justify-center text-[#4F471F] hover:text-[#800314] hover:border-[#800314] transition-colors" aria-label="Instagram">
+<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+</a>
+<a href="#" class="w-10 h-10 rounded-full border border-[#4F471F]/20 flex items-center justify-center text-[#4F471F] hover:text-[#800314] hover:border-[#800314] transition-colors" aria-label="Facebook">
+<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+</a>
+</div>
+</div>
+<div class="flex flex-col">
+<h4 class="font-['Montserrat'] font-semibold uppercase tracking-[0.15em] text-[#4F471F] text-xs mb-6">Navigation</h4>
+<nav class="flex flex-col gap-4">
+<a class="font-['Montserrat'] font-light text-[#4F471F]/80 text-sm hover:text-[#800314] transition-colors" href="story.html">Our Story</a>
+<a class="font-['Montserrat'] font-light text-[#4F471F]/80 text-sm hover:text-[#800314] transition-colors" href="boards.html">Our Boards</a>
+<a class="font-['Montserrat'] font-light text-[#4F471F]/80 text-sm hover:text-[#800314] transition-colors" href="services.html">Services</a>
+<a class="font-['Montserrat'] font-light text-[#4F471F]/80 text-sm hover:text-[#800314] transition-colors" href="journal.html">Journal</a>
+</nav>
+</div>
+<div class="flex flex-col">
+<h4 class="font-['Montserrat'] font-semibold uppercase tracking-[0.15em] text-[#4F471F] text-xs mb-6">Contact</h4>
+<div class="flex flex-col gap-4">
+<a href="mailto:hello@mimas.ae" class="flex items-center gap-3 font-['Montserrat'] font-light text-[#4F471F]/80 text-sm hover:text-[#800314] transition-colors">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+hello@mimas.ae
+</a>
+<a href="tel:+97150000000" class="flex items-center gap-3 font-['Montserrat'] font-light text-[#4F471F]/80 text-sm hover:text-[#800314] transition-colors">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
++971 50 000 0000
+</a>
+<div class="flex items-start gap-3 font-['Montserrat'] font-light text-[#4F471F]/80 text-sm">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 flex-shrink-0"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+<span>Dubai, United<br/>Arab Emirates</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col">
+<h4 class="font-['Montserrat'] font-semibold uppercase tracking-[0.15em] text-[#4F471F] text-xs mb-6">Newsletter</h4>
+<p class="font-['Montserrat'] font-light text-[#4F471F]/70 text-sm leading-relaxed mb-6">Join our community for pairing tips and seasonal updates.</p>
+<form class="flex flex-col gap-3" onsubmit="event.preventDefault()">
+<input type="email" placeholder="Your email" class="footer-email-input" />
+<button type="submit" class="font-['Montserrat'] font-medium uppercase tracking-[0.15em] text-[13px] text-white bg-[#800314] hover:bg-[#800314]/90 transition-colors py-3 px-6 mt-1" style="border-radius: 0.125rem;">Subscribe</button>
+</form>
+</div>
+</div>
+</div>
+<div class="border-t border-[#4F471F]/10">
+<div class="max-w-7xl mx-auto px-8 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-['Montserrat'] font-medium uppercase tracking-[0.15em] text-[10px] text-[#4F471F]/50">&copy; 2026 mima's. All rights reserved.</p>
+<div class="flex gap-8">
+<a class="font-['Montserrat'] font-medium uppercase tracking-[0.15em] text-[10px] text-[#4F471F]/50 hover:text-[#800314] transition-colors" href="#">Legal Notice</a>
+<a class="font-['Montserrat'] font-medium uppercase tracking-[0.15em] text-[10px] text-[#4F471F]/50 hover:text-[#800314] transition-colors" href="#">Cookie Policy</a>
+</div>
+</div>
+</div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4/dist/umd/supabase.min.js"></script>
+<script src="../js/supabase-config.js"></script>
+<script src="../js/mimas-cart.js"></script>
+</body></html>

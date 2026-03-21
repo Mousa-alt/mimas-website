@@ -1,0 +1,17 @@
+# Branding assets (large files)
+*.pdf
+*.png
+*.xlsx
+# Root-level font files (branding copies)
+/Floralis Couture.ttf
+
+# Reference files
+WEBSITE-PROMPT.md
+Copy of Menu.xlsx
+
+# Tasks (local only)
+tasks/
+
+# OS files
+.DS_Store
+Thumbs.db

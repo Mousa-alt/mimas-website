@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Journal | mima's</title>
+<meta name="description" content="Stories of terroir, tales of pairing, and the art of indulgence. Educational guides to artisanal cheese from mima's in Dubai."/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&amp;family=Sacramento&amp;family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&amp;family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container": "#f0eee4",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#1b1c16",
+                        "on-secondary-container": "#6e6539",
+                        "surface-dim": "#dcdad1",
+                        "background": "#fbf9ef",
+                        "surface-container-low": "#f6f4ea",
+                        "secondary-container": "#f0e3ad",
+                        "primary-fixed": "#ffdad7",
+                        "surface-bright": "#fbf9ef",
+                        "surface-container-high": "#eae8df",
+                        "surface": "#fbf9ef",
+                        "inverse-on-surface": "#f3f1e7",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#00284d",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-tint": "#b02d31",
+                        "secondary-fixed": "#f0e3ad",
+                        "inverse-surface": "#30312a",
+                        "on-primary-container": "#ff847f",
+                        "on-tertiary-fixed": "#001c39",
+                        "tertiary-fixed-dim": "#a3c9ff",
+                        "primary": "#580009",
+                        "tertiary-container": "#003e72",
+                        "on-primary-fixed-variant": "#8e111c",
+                        "inverse-primary": "#ffb3af",
+                        "primary-fixed-dim": "#ffb3af",
+                        "on-tertiary-fixed-variant": "#14487c",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#d3c793",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed": "#211b00",
+                        "outline-variant": "#e0bfbc",
+                        "secondary": "#675f34",
+                        "primary-container": "#800314",
+                        "surface-container-highest": "#e4e3d9",
+                        "on-background": "#1b1c16",
+                        "tertiary-fixed": "#d3e3ff",
+                        "surface-variant": "#e4e3d9",
+                        "on-tertiary-container": "#80aae5",
+                        "on-primary-fixed": "#410005",
+                        "outline": "#8d706e",
+                        "on-surface-variant": "#59413f",
+                        "on-secondary-fixed-variant": "#4f471f",
+                        "on-primary": "#ffffff",
+                        "olive": "#4F471F",
+                        "cherry": "#800314",
+                        "cream": "#FCFAF0",
+                        "almond": "#F0EEE4"
+                    },
+                    fontFamily: {
+                        "headline": ["Montserrat", "sans-serif"],
+                        "body": ["Montserrat", "sans-serif"],
+                        "label": ["Montserrat", "sans-serif"],
+                        "script": ["Floralis Couture", "Sacramento", "cursive"],
+                        "logo": ["Cormorant Garamond", "serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+<style>
+        @font-face {
+            font-family: 'Floralis Couture';
+            src: url('../fonts/Floralis-Couture.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body {
+            background-color: #fbf9ef;
+            color: #4F471F;
+        }
+        .mimas-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            font-style: normal;
+            letter-spacing: 0.02em;
+            line-height: 1;
+        }
+        .tagline-flavor {
+            font-family: 'Floralis Couture', 'Sacramento', cursive;
+        }
+        .footer-email-input {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid #4F471F40;
+            outline: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            font-size: 0.875rem;
+            color: #4F471F;
+            padding: 8px 0;
+            width: 100%;
+        }
+        .footer-email-input::placeholder {
+            color: #4F471F80;
+        }
+        .footer-email-input:focus {
+            border-bottom-color: #800314;
+        }
+        /* Article detail view */
+        .article-detail { display: none; }
+        .article-detail.active { display: block; }
+        .article-listing.hidden { display: none; }
+        /* Filter button active state */
+        .filter-btn { transition: all 0.3s ease; }
+        .filter-btn.active {
+            background-color: #800314;
+            color: #FCFAF0;
+            border-color: #800314;
+        }
+        /* Scroll reveal animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="antialiased">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-[#FCFAF0]/80 backdrop-blur-md transition-all duration-300 border-b border-[#4F471F]/5">
+<nav class="flex justify-between items-center w-full px-8 py-6 max-w-7xl mx-auto">
+<div class="flex-1">
+<a class="mimas-logo lowercase text-3xl text-[#4F471F] hover:text-[#800314] transition-colors" href="../">mima's</a>
+</div>
+<div class="hidden md:flex items-center gap-12 flex-none">
+<a class="font-['Montserrat'] font-medium uppercase tracking-[0.15em] text-[13px] text-[#4F471F] hover:text-[#800314] transition-colors duration-300" href="story.html">Story</a>
+<a class="font-['Montserrat'] font-medium uppercase tracking-[0.15em] text-[13px] text-[#4F471F] hover:text-[#800314] transition-colors duration-300" href="boards.html">Boards</a>
+<a class="font-['Montserrat'] font-medium uppercase tracking-[0.15em] text-[13px] text-[#4F471F] hover:text-[#800314] transition-colors duration-300" href="services.html">Services</a>
+<a class="font-['Montserrat'] font-medium uppercase tracking-[0.15em] text-[13px] text-[#800314] border-b border-[#800314]/20 pb-1" href="journal.html">Journal</a>
+<a class="font-['Montserrat'] font-medium uppercase tracking-[0.15em] text-[13px] text-[#4F471F] hover:text-[#800314] transition-colors duration-300" href="contact.html">Contact</a>
+</div>
+<div class="flex-1"></div>
+</nav>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="bg-[#FCFAF0] pt-24 pb-16 px-12 text-center">
+<p class="font-script text-primary text-3xl md:text-4xl mb-3 lowercase">le carnet</p>
+<h1 class="font-['Montserrat'] font-semibold uppercase tracking-[0.2em] text-[#4F471F] text-base md:text-lg mb-6">Journal</h1>
+<p class="font-['Montserrat'] font-light text-[#4F471F]/60 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">Stories of terroir, tales of pairing, and the art of indulgence. Our guides to understanding, tasting, and sharing artisanal cheese.</p>
+<div class="w-24 h-[1px] bg-[#4F471F]/20 mx-auto mt-8"></div>
+</section>
+
+<!-- Article Listing View -->
+<div id="article-listing" class="article-listing">
+
+<!-- Category Filters -->
+<section class="max-w-[1440px] mx-auto px-12 pt-8 pb-4">
+<div class="flex flex-wrap justify-center gap-3">
+<button class="filter-btn active px-5 py-2 text-xs font-semibold uppercase tracking-[0.12em] rounded-sm border border-[#4F471F]/20" aria-pressed="true" data-category="all" onclick="filterArticles('all', this)">All</button>
+<button class="filter-btn px-5 py-2 text-xs font-semibold uppercase tracking-[0.12em] rounded-sm border border-[#4F471F]/20 text-[#4F471F]" aria-pressed="false" data-category="cheese-101" onclick="filterArticles('cheese-101', this)">Cheese 101</button>
+<button class="filter-btn px-5 py-2 text-xs font-semibold uppercase tracking-[0.12em] rounded-sm border border-[#4F471F]/20 text-[#4F471F]" aria-pressed="false" data-category="pairing-texture" onclick="filterArticles('pairing-texture', this)">Pairing &amp; Texture</button>
+</div>
+</section>
+
+<!-- Featured Article -->
+<section class="max-w-[1440px] mx-auto px-12 py-16 reveal">
+<div class="flex flex-col md:flex-row gap-12 items-center article-card" data-category="pairing-texture">
+<div class="w-full md:w-[60%] overflow-hidden">
+<img class="w-full aspect-[16/10] object-cover hover:scale-105 transition-transform duration-700 ease-out grayscale-[20%] hover:grayscale-0" alt="Texture guide to cheese" src="https://images.unsplash.com/photo-1539024511553-58bbcf23dfd7?w=1200&q=80"/>
+</div>
+<div class="w-full md:w-[40%] space-y-5">
+<span class="font-label uppercase tracking-widest text-[10px] text-[#800314] font-semibold">Pairing &amp; Texture</span>
+<h2 class="font-headline font-semibold text-3xl md:text-4xl leading-tight text-[#4F471F]">Soft, Hard &amp; Everything Between: A Texture Guide to Cheese</h2>
+<p class="font-body font-light text-[#4F471F]/50 text-xs uppercase tracking-wider">6 min read &middot; 12 March 2026</p>
+<p class="font-body font-light text-lg leading-relaxed text-[#4F471F]">Texture is the overlooked dimension of cheese. From spoonable to crumbling to crystalline — understanding texture changes how you build a board.</p>
+<a class="inline-block font-label uppercase tracking-widest text-xs font-bold text-[#800314] border-b border-[#800314]/20 pb-1 hover:border-[#800314] transition-all cursor-pointer" onclick="showArticle('texture-guide-to-cheese')">Read More</a>
+</div>
+</div>
+</section>
+
+<!-- Article Grid -->
+<section class="max-w-[1440px] mx-auto px-12 pb-32">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20" id="article-grid">
+
+<!-- Card: What Makes Cheese Artisanal -->
+<div class="group cursor-pointer article-card reveal" data-category="cheese-101" onclick="showArticle('what-makes-cheese-artisanal')">
+<div class="relative overflow-hidden mb-6">
+<img class="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-105" alt="Artisanal cheese wheels" src="https://images.unsplash.com/photo-1452195100486-9cc805987862?w=800&q=80"/>
+<div class="absolute inset-0 bg-[#FCFAF0]/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="bg-[#FCFAF0] px-4 py-2 font-label text-[10px] uppercase tracking-widest text-[#4F471F]">Read</span>
+</div>
+</div>
+<span class="font-label uppercase tracking-widest text-[10px] text-[#800314] font-medium">Cheese 101</span>
+<h3 class="font-headline font-semibold text-xl text-[#4F471F] mt-2 mb-3">What Makes Cheese Artisanal? A Beginner's Guide</h3>
+<p class="font-body font-light text-[#4F471F]/50 text-xs uppercase tracking-wider mb-3">5 min read &middot; 15 March 2026</p>
+<p class="font-body font-light text-sm text-[#4F471F]/70 leading-relaxed line-clamp-2">Not all cheese is created equal. Discover what separates a mass-produced block from a wheel lovingly aged in a centuries-old cave.</p>
+</div>
+
+<!-- Card: The 6 Families of Cheese -->
+<div class="group cursor-pointer article-card reveal" data-category="cheese-101" onclick="showArticle('six-families-of-cheese')">
+<div class="relative overflow-hidden mb-6">
+<img class="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-105" alt="Cheese families display" src="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=800&q=80"/>
+<div class="absolute inset-0 bg-[#FCFAF0]/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="bg-[#FCFAF0] px-4 py-2 font-label text-[10px] uppercase tracking-widest text-[#4F471F]">Read</span>
+</div>
+</div>
+<span class="font-label uppercase tracking-widest text-[10px] text-[#800314] font-medium">Cheese 101</span>
+<h3 class="font-headline font-semibold text-xl text-[#4F471F] mt-2 mb-3">The 6 Families of Cheese (and How to Taste Them)</h3>
+<p class="font-body font-light text-[#4F471F]/50 text-xs uppercase tracking-wider mb-3">7 min read &middot; 8 March 2026</p>
+<p class="font-body font-light text-sm text-[#4F471F]/70 leading-relaxed line-clamp-2">From the pillowy softness of a Brie to the crystalline crunch of aged Comt&eacute; — learn the six families that define the cheese world.</p>
+</div>
+
+<!-- Card: Why Does Cheese Smell -->
+<div class="group cursor-pointer article-card reveal" data-category="cheese-101" onclick="showArticle('why-does-cheese-smell')">
+<div class="relative overflow-hidden mb-6">
+<img class="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-105" alt="Cheese ageing in cave" src="https://images.unsplash.com/photo-1634487359989-3e90c9432133?w=800&q=80"/>
+<div class="absolute inset-0 bg-[#FCFAF0]/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="bg-[#FCFAF0] px-4 py-2 font-label text-[10px] uppercase tracking-widest text-[#4F471F]">Read</span>
+</div>
+</div>
+<span class="font-label uppercase tracking-widest text-[10px] text-[#800314] font-medium">Cheese 101</span>
+<h3 class="font-headline font-semibold text-xl text-[#4F471F] mt-2 mb-3">Why Does Cheese Smell? The Science Behind the Rind</h3>
+<p class="font-body font-light text-[#4F471F]/50 text-xs uppercase tracking-wider mb-3">4 min read &middot; 28 February 2026</p>
+<p class="font-body font-light text-sm text-[#4F471F]/70 leading-relaxed line-clamp-2">That pungent aroma is not a flaw — it is the signature of microbial craftsmanship.</p>
+</div>
+
+<!-- Card: Raw vs Pasteurized -->
+<div class="group cursor-pointer article-card reveal" data-category="cheese-101" onclick="showArticle('raw-vs-pasteurized')">
+<div class="relative overflow-hidden mb-6">
+<img class="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-105" alt="Raw milk cheese production" src="https://images.unsplash.com/photo-1559561853-08451507cbe7?w=800&q=80"/>
+<div class="absolute inset-0 bg-[#FCFAF0]/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="bg-[#FCFAF0] px-4 py-2 font-label text-[10px] uppercase tracking-widest text-[#4F471F]">Read</span>
+</div>
+</div>
+<span class="font-label uppercase tracking-widest text-[10px] text-[#800314] font-medium">Cheese 101</span>
+<h3 class="font-headline font-semibold text-xl text-[#4F471F] mt-2 mb-3">Raw vs Pasteurized: What's the Difference?</h3>
+<p class="font-body font-light text-[#4F471F]/50 text-xs uppercase tracking-wider mb-3">5 min read &middot; 20 February 2026</p>
+<p class="font-body font-light text-sm text-[#4F471F]/70 leading-relaxed line-clamp-2">The great milk debate explained — why raw milk creates cheeses of extraordinary depth.</p>
+</div>
+
+<!-- Card: How to Read a Cheese Label -->
+<div class="group cursor-pointer article-card reveal" data-category="cheese-101" onclick="showArticle('how-to-read-a-cheese-label')">
+<div class="relative overflow-hidden mb-6">
+<img class="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-105" alt="Cheese labels and AOP stamps" src="https://images.unsplash.com/photo-1589881133825-bbb3b9471b1b?w=800&q=80"/>
+<div class="absolute inset-0 bg-[#FCFAF0]/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="bg-[#FCFAF0] px-4 py-2 font-label text-[10px] uppercase tracking-widest text-[#4F471F]">Read</span>
+</div>
+</div>
+<span class="font-label uppercase tracking-widest text-[10px] text-[#800314] font-medium">Cheese 101</span>
+<h3 class="font-headline font-semibold text-xl text-[#4F471F] mt-2 mb-3">How to Read a Cheese Label Like a Pro</h3>
+<p class="font-body font-light text-[#4F471F]/50 text-xs uppercase tracking-wider mb-3">4 min read &middot; 12 February 2026</p>
+<p class="font-body font-light text-sm text-[#4F471F]/70 leading-relaxed line-clamp-2">AOP, fermier, lait cru — the labels carry a wealth of information if you know how to read them.</p>
+</div>
+
+<!-- Card: Creamy Cheese + Crunchy Pairings -->
+<div class="group cursor-pointer article-card reveal" data-category="pairing-texture" onclick="showArticle('creamy-cheese-crunchy-pairings')">
+<div class="relative overflow-hidden mb-6">
+<img class="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-105" alt="Creamy cheese with crackers" src="https://images.unsplash.com/photo-1505575967455-40e256f73376?w=800&q=80"/>
+<div class="absolute inset-0 bg-[#FCFAF0]/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="bg-[#FCFAF0] px-4 py-2 font-label text-[10px] uppercase tracking-widest text-[#4F471F]">Read</span>
+</div>
+</div>
+<span class="font-label uppercase tracking-widest text-[10px] text-[#800314] font-medium">Pairing &amp; Texture</span>
+<h3 class="font-headline font-semibold text-xl text-[#4F471F] mt-2 mb-3">Pairing Creamy Cheeses with Crunchy Accompaniments</h3>
+<p class="font-body font-light text-[#4F471F]/50 text-xs uppercase tracking-wider mb-3">5 min read &middot; 5 March 2026</p>
+<p class="font-body font-light text-sm text-[#4F471F]/70 leading-relaxed line-clamp-2">The secret to a memorable bite is contrast. Learn why creamy cheeses and crunchy accompaniments are the most satisfying pairing.</p>
+</div>
+
+<!-- Card: Crumbly Meets Smooth -->
+<div class="group cursor-pointer article-card reveal" data-category="pairing-texture" onclick="showArticle('crumbly-meets-smooth')">
+<div class="relative overflow-hidden mb-6">
+<img class="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-105" alt="Contrasting cheese textures on board" src="https://images.unsplash.com/photo-1573662735457-3bcb94d09e10?w=800&q=80"/>
+<div class="absolute inset-0 bg-[#FCFAF0]/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="bg-[#FCFAF0] px-4 py-2 font-label text-[10px] uppercase tracking-widest text-[#4F471F]">Read</span>
+</div>
+</div>
+<span class="font-label uppercase tracking-widest text-[10px] text-[#800314] font-medium">Pairing &amp; Texture</span>
+<h3 class="font-headline font-semibold text-xl text-[#4F471F] mt-2 mb-3">Crumbly Meets Smooth: Contrast Pairing on Your Board</h3>
+<p class="font-body font-light text-[#4F471F]/50 text-xs uppercase tracking-wider mb-3">5 min read &middot; 25 February 2026</p>
+<p class="font-body font-light text-sm text-[#4F471F]/70 leading-relaxed line-clamp-2">A board with one texture is forgettable. A board with deliberate textural contrasts is unforgettable.</p>
+</div>
+
+<!-- Card: Cheese + Honey, Jams & Chutneys -->
+<div class="group cursor-pointer article-card reveal" data-category="pairing-texture" onclick="showArticle('cheese-honey-jams-chutneys')">
+<div class="relative overflow-hidden mb-6">
+<img class="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-105" alt="Cheese with honey and jams" src="https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?w=800&q=80"/>
+<div class="absolute inset-0 bg-[#FCFAF0]/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="bg-[#FCFAF0] px-4 py-2 font-label text-[10px] uppercase tracking-widest text-[#4F471F]">Read</span>
+</div>
+</div>
+<span class="font-label uppercase tracking-widest text-[10px] text-[#800314] font-medium">Pairing &amp; Texture</span>
+<h3 class="font-headline font-semibold text-xl text-[#4F471F] mt-2 mb-3">How to Pair Cheese with Honey, Jams &amp; Chutneys</h3>
+<p class="font-body font-light text-[#4F471F]/50 text-xs uppercase tracking-wider mb-3">5 min read &middot; 18 February 2026</p>
+<p class="font-body font-light text-sm text-[#4F471F]/70 leading-relaxed line-clamp-2">Sweet meets savoury — the timeless combination that elevates every cheese board.</p>
+</div>
+
+<!-- Card: Nuts, Dried Fruits & Cheese -->
+<div class="group cursor-pointer article-card reveal" data-category="pairing-texture" onclick="showArticle('nuts-dried-fruits-cheese')">
+<div class="relative overflow-hidden mb-6">
+<img class="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-105" alt="Nuts and dried fruits with cheese" src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=800&q=80"/>
+<div class="absolute inset-0 bg-[#FCFAF0]/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="bg-[#FCFAF0] px-4 py-2 font-label text-[10px] uppercase tracking-widest text-[#4F471F]">Read</span>
+</div>
+</div>
+<span class="font-label uppercase tracking-widest text-[10px] text-[#800314] font-medium">Pairing &amp; Texture</span>
+<h3 class="font-headline font-semibold text-xl text-[#4F471F] mt-2 mb-3">Nuts, Dried Fruits &amp; Cheese: Building Texture into Every Bite</h3>
+<p class="font-body font-light text-[#4F471F]/50 text-xs uppercase tracking-wider mb-3">4 min read &middot; 10 February 2026</p>
+<p class="font-body font-light text-sm text-[#4F471F]/70 leading-relaxed line-clamp-2">Nuts and dried fruits are not decoration — they are essential textural partners.</p>
+</div>
+
+<!-- Card: Cheese + Arabic Flavours -->
+<div class="group cursor-pointer article-card reveal" data-category="pairing-texture" onclick="showArticle('cheese-arabic-flavours')">
+<div class="relative overflow-hidden mb-6">
+<img class="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-105" alt="Dates za'atar and saffron with cheese" src="https://images.unsplash.com/photo-1547483238-f400e65ccd56?w=800&q=80"/>
+<div class="absolute inset-0 bg-[#FCFAF0]/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="bg-[#FCFAF0] px-4 py-2 font-label text-[10px] uppercase tracking-widest text-[#4F471F]">Read</span>
+</div>
+</div>
+<span class="font-label uppercase tracking-widest text-[10px] text-[#800314] font-medium">Pairing &amp; Texture</span>
+<h3 class="font-headline font-semibold text-xl text-[#4F471F] mt-2 mb-3">Pairing Cheese with Arabic Flavours: Dates, Za'atar &amp; Saffron</h3>
+<p class="font-body font-light text-[#4F471F]/50 text-xs uppercase tracking-wider mb-3">6 min read &middot; 5 February 2026</p>
+<p class="font-body font-light text-sm text-[#4F471F]/70 leading-relaxed line-clamp-2">The spice souks of the Middle East hold unexpected treasures for cheese pairing.</p>
+</div>
+
+<!-- Card: Cheese + Tea, Coffee & Juices -->
+<div class="group cursor-pointer article-card reveal" data-category="pairing-texture" onclick="showArticle('cheese-tea-coffee-juices')">
+<div class="relative overflow-hidden mb-6">
+<img class="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-105" alt="Tea and coffee with cheese" src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=800&q=80"/>
+<div class="absolute inset-0 bg-[#FCFAF0]/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="bg-[#FCFAF0] px-4 py-2 font-label text-[10px] uppercase tracking-widest text-[#4F471F]">Read</span>
+</div>
+</div>
+<span class="font-label uppercase tracking-widest text-[10px] text-[#800314] font-medium">Pairing &amp; Texture</span>
+<h3 class="font-headline font-semibold text-xl text-[#4F471F] mt-2 mb-3">Pairing Cheese with Tea, Coffee &amp; Fresh Juices</h3>
+<p class="font-body font-light text-[#4F471F]/50 text-xs uppercase tracking-wider mb-3">5 min read &middot; 28 January 2026</p>
+<p class="font-body font-light text-sm text-[#4F471F]/70 leading-relaxed line-clamp-2">Move beyond the obvious. Tea, coffee, and fresh juices offer surprising pairing possibilities.</p>
+</div>
+
+<!-- Card: Bread & Crackers -->
+<div class="group cursor-pointer article-card reveal" data-category="pairing-texture" onclick="showArticle('bread-crackers-texture-matching')">
+<div class="relative overflow-hidden mb-6">
+<img class="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-105" alt="Bread and crackers with cheese" src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&q=80"/>
+<div class="absolute inset-0 bg-[#FCFAF0]/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="bg-[#FCFAF0] px-4 py-2 font-label text-[10px] uppercase tracking-widest text-[#4F471F]">Read</span>
+</div>
+</div>
+<span class="font-label uppercase tracking-widest text-[10px] text-[#800314] font-medium">Pairing &amp; Texture</span>
+<h3 class="font-headline font-semibold text-xl text-[#4F471F] mt-2 mb-3">The Role of Bread &amp; Crackers: Matching Texture to Cheese</h3>
+<p class="font-body font-light text-[#4F471F]/50 text-xs uppercase tracking-wider mb-3">4 min read &middot; 20 January 2026</p>
+<p class="font-body font-light text-sm text-[#4F471F]/70 leading-relaxed line-clamp-2">A great vehicle is invisible — it delivers the cheese perfectly without competing.</p>
+</div>
+
+</div>
+</section>
+</div><!-- end article-listing -->
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- ARTICLE DETAIL VIEWS (hidden by default, shown via JS) -->
+<!-- ═══════════════════════════════════════════════════════ -->
+
+<!-- Article: What Makes Cheese Artisanal -->
+<div class="article-detail" id="article-what-makes-cheese-artisanal">
+<section class="max-w-3xl mx-auto px-8 pt-8 pb-20">
+<button onclick="hideArticle()" class="font-label uppercase tracking-widest text-xs text-[#4F471F]/60 hover:text-[#800314] transition-colors mb-12 inline-block">&larr; Back to Journal</button>
+<span class="font-label uppercase tracking-widest text-[10px] text-[#800314] font-semibold block mb-4">Cheese 101</span>
+<p class="font-script text-[#800314] text-2xl md:text-3xl lowercase mb-4">le savoir-faire</p>
+<h1 class="font-headline font-semibold text-3xl md:text-4xl lg:text-5xl text-[#4F471F] leading-tight mb-6">What Makes Cheese Artisanal? A Beginner's Guide</h1>
+<p class="font-body font-light text-[#4F471F]/50 text-xs uppercase tracking-wider mb-8">5 min read &middot; 15 March 2026</p>
+<img class="w-full aspect-[16/9] object-cover mb-12" alt="Artisanal cheese wheels" src="https://images.unsplash.com/photo-1452195100486-9cc805987862?w=1200&q=80"/>
+<div class="font-body font-light text-[#4F471F]/90 text-base md:text-lg leading-[1.85] space-y-6">
+<p class="font-headline font-medium text-lg md:text-xl italic text-[#4F471F]">Not all cheese is created equal. Discover what separates a mass-produced block from a wheel lovingly aged in a centuries-old cave.</p>
+<div class="w-16 h-[1px] bg-[#4F471F]/20 mx-auto my-8"></div>
+<p>Walk into any supermarket and you will find shelves of cheese wrapped in plastic, uniform in shape and predictable in taste. Walk into a fromagerie and the experience is entirely different — wheels stacked on straw, rinds blooming with life, aromas that tell stories of pastures and seasons. The difference is artisanal craft.</p>
+<p>Artisanal cheese begins with the milk. The best producers work with small herds — often a single breed — grazing on specific terroir. A Salers cow eating wildflowers in the Auvergne mountains produces milk that tastes fundamentally different from a Holstein in a flat industrial barn. This is not marketing; it is biology. The grasses, herbs, and altitude all leave fingerprints in the milk's fat and protein composition.</p>
+<p>The second marker is the process. Artisanal cheesemakers rely on manual techniques passed down through generations. Curd is often cut by hand, moulded by hand, and turned by hand during ageing. There are no shortcuts. An industrial plant can produce ten thousand identical wheels in a day; an artisanal producer may make forty, each slightly different from the last.</p>
+<p>Then there is time. A young Comt&eacute; spends a minimum of four months in a cellar. An exceptional one spends thirty-six. During that time, the affinage — the art of ageing — transforms a bland white paste into something complex, crystalline, and layered with flavours of hazelnut, caramel, and toasted butter. No amount of chemical acceleration can replicate what patience achieves.</p>
+<p>Raw milk is another hallmark of the artisanal tradition. While pasteurisation kills harmful bacteria, it also strips away the beneficial microflora that give cheese its character. Many of the world's most celebrated cheeses — Brie de Meaux, Roquefort, Parmigiano Reggiano — are made exclusively from raw milk. The result is a depth and complexity that pasteurised versions simply cannot match.</p>
+<p>Finally, artisanal cheese carries an identity. A true Camembert de Normandie is not just a style — it is a specific cheese made in a specific place using specific methods, protected by an AOP (Appellation d'Origine Prot&eacute;g&eacute;e) designation. When you choose artisanal, you are choosing provenance, tradition, and flavour over convenience.</p>
+</div>
+</section>
+</div>
+
+<!-- Article: The 6 Families of Cheese -->
+<div class="article-detail" id="article-six-families-of-cheese">
+<section class="max-w-3xl mx-auto px-8 pt-8 pb-20">
+<button onclick="hideArticle()" class="font-label uppercase tracking-widest text-xs text-[#4F471F]/60 hover:text-[#800314] transition-colors mb-12 inline-block">&larr; Back to Journal</button>
+<span class="font-label uppercase tracking-widest text-[10px] text-[#800314] font-semibold block mb-4">Cheese 101</span>
+<p class="font-script text-[#800314] text-2xl md:text-3xl lowercase mb-4">les six familles</p>
+<h1 class="font-headline font-semibold text-3xl md:text-4xl lg:text-5xl text-[#4F471F] leading-tight mb-6">The 6 Families of Cheese (and How to Taste Them)</h1>
+<p class="font-body font-light text-[#4F471F]/50 text-xs uppercase tracking-wider mb-8">7 min read &middot; 8 March 2026</p>
+<img class="w-full aspect-[16/9] object-cover mb-12" alt="Cheese families display" src="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=1200&q=80"/>
+<div class="font-body font-light text-[#4F471F]/90 text-base md:text-lg leading-[1.85] space-y-6">
+<p class="font-headline font-medium text-lg md:text-xl italic text-[#4F471F]">From the pillowy softness of a Brie to the crystalline crunch of aged Comt&eacute; — learn the six families that define the cheese world.</p>
+<div class="w-16 h-[1px] bg-[#4F471F]/20 mx-auto my-8"></div>
+<p>Every cheese in the world belongs to one of six families, defined not by where it comes from but by how it is made. Understanding these families is the single most useful framework for navigating a cheese counter, building a board, or simply knowing what you enjoy.</p>
+<p>The first family is <strong>Fresh cheese</strong> — think ricotta, mozzarella, or ch&egrave;vre frais. These are unaged, high in moisture, and mild in flavour. They taste of clean milk, sometimes with a gentle tang. Fresh cheeses are best eaten within days of production and pair beautifully with bright, acidic accompaniments like lemon zest or fresh herbs.</p>
+<p>The second family is <strong>Bloomy Rind</strong> — the soft, white-coated cheeses like Brie de Meaux, Camembert, and Brillat-Savarin. The white rind is a mould (Penicillium candidum) deliberately introduced during production. It breaks down the paste from the outside in, creating that characteristic oozy centre. Taste these from rind to centre: the rind is earthy and mushroomy, while the paste is buttery and rich.</p>
+<p>Third comes <strong>Washed Rind</strong> — the pungent, orange-skinned cheeses that intimidate newcomers. Taleggio, Reblochon, and Mont d'Or are washed repeatedly with brine, beer, or spirits during ageing, encouraging specific bacteria that create bold aromas. Here is the secret: washed rinds almost always smell stronger than they taste. The flavour is often meaty, savoury, and surprisingly gentle.</p>
+<p>The fourth family is <strong>Semi-hard</strong> — Tomme de Savoie, Manchego, young Gouda. These cheeses have been pressed to remove moisture and aged for a few weeks to several months. They are the workhorses of the cheese world: versatile, approachable, and excellent on a board. Expect flavours ranging from nutty and buttery to sweet and grassy.</p>
+<p>Fifth is <strong>Hard cheese</strong> — the aged, dense, intensely flavoured wheels. Comt&eacute;, Parmigiano Reggiano, Gruy&egrave;re, and aged Gouda sit here. Extended ageing (often twelve months or more) concentrates flavour and creates those satisfying tyrosine crystals — the crunchy bits in aged cheese. Taste these slowly; they reveal layers of caramel, fruit, and spice.</p>
+<p>The sixth and final family is <strong>Blue</strong> — Roquefort, Stilton, Gorgonzola, Fourme d'Ambert. Blue moulds (Penicillium roqueforti) are introduced into the curd, then the cheese is pierced with needles to allow air in. The result ranges from creamy and mild (Fourme d'Ambert) to sharp and assertive (Roquefort). Blue cheese rewards patience: let a piece warm on your tongue and its complexity unfolds.</p>
+<p>When tasting, always move from mildest to boldest — fresh to blue. This trains your palate progressively rather than overwhelming it. And remember: the best way to learn about cheese is simply to eat more of it.</p>
+</div>
+</section>
+</div>
+
+<!-- Article: Why Does Cheese Smell -->
+<div class="article-detail" id="article-why-does-cheese-smell">
+<section class="max-w-3xl mx-auto px-8 pt-8 pb-20">
+<button onclick="hideArticle()" class="font-label uppercase tracking-widest text-xs text-[#4F471F]/60 hover:text-[#800314] transition-colors mb-12 inline-block">&larr; Back to Journal</button>
+<span class="font-label uppercase tracking-widest text-[10px] text-[#800314] font-semibold block mb-4">Cheese 101</span>
+<p class="font-script text-[#800314] text-2xl md:text-3xl lowercase mb-4">la chimie du fromage</p>
+<h1 class="font-headline font-semibold text-3xl md:text-4xl lg:text-5xl text-[#4F471F] leading-tight mb-6">Why Does Cheese Smell? The Science Behind the Rind</h1>
+<p class="font-body font-light text-[#4F471F]/50 text-xs uppercase tracking-wider mb-8">4 min read &middot; 28 February 2026</p>
+<img class="w-full aspect-[16/9] object-cover mb-12" alt="Cheese ageing in cave" src="https://images.unsplash.com/photo-1634487359989-3e90c9432133?w=1200&q=80"/>
+<div class="font-body font-light text-[#4F471F]/90 text-base md:text-lg leading-[1.85] space-y-6">
+<p class="font-headline font-medium text-lg md:text-xl italic text-[#4F471F]">That pungent aroma is not a flaw — it is the signature of microbial craftsmanship. A brief tour of the chemistry that gives cheese its character.</p>
+<div class="w-16 h-[1px] bg-[#4F471F]/20 mx-auto my-8"></div>
+<p>Cheese smells because it is alive — or more precisely, because billions of microorganisms are hard at work transforming milk into something extraordinary. The aromas that make some people recoil and others lean in closer are the byproducts of bacterial metabolism, and understanding them is key to appreciating cheese.</p>
+<p>The primary culprit is a group of bacteria called Brevibacterium linens. These are the same bacteria found on human skin, which is why washed-rind cheeses like &Eacute;poisses and Limburger are often compared to feet. B. linens thrive in salty, moist environments and produce sulphur compounds — the same family of molecules responsible for the smell of eggs and onions.</p>
+<p>Moulds play their part too. The white bloom on a Brie is Penicillium candidum, which produces enzymes that break down fats into aromatic compounds. This is why the rind of a perfectly ripe Camembert smells of mushrooms and damp earth — the mould is literally digesting the cheese from the outside in, releasing volatile molecules as it goes.</p>
+<p>Blue cheeses owe their distinctive sharpness to Penicillium roqueforti, which produces ketones — specifically methyl ketones — that give blue cheese its peppery, metallic bite. The intensity of a blue's aroma is directly proportional to how much mould has developed.</p>
+<p>Here is the most important thing to remember: smell and taste are related but not identical. Many of the most pungent cheeses have surprisingly delicate, nuanced flavours. A Pont-l'&Eacute;v&ecirc;que that smells like a barn tastes of cream, nuts, and grass. The disconnect between nose and palate is one of cheese's great pleasures.</p>
+</div>
+</section>
+</div>
+
+<!-- Article: Raw vs Pasteurized -->
+<div class="article-detail" id="article-raw-vs-pasteurized">
+<section class="max-w-3xl mx-auto px-8 pt-8 pb-20">
+<button onclick="hideArticle()" class="font-label uppercase tracking-widest text-xs text-[#4F471F]/60 hover:text-[#800314] transition-colors mb-12 inline-block">&larr; Back to Journal</button>
+<span class="font-label uppercase tracking-widest text-[10px] text-[#800314] font-semibold block mb-4">Cheese 101</span>
+<p class="font-script text-[#800314] text-2xl md:text-3xl lowercase mb-4">lait cru, lait pasteuris&eacute;</p>
+<h1 class="font-headline font-semibold text-3xl md:text-4xl lg:text-5xl text-[#4F471F] leading-tight mb-6">Raw vs Pasteurized: What's the Difference?</h1>
+<p class="font-body font-light text-[#4F471F]/50 text-xs uppercase tracking-wider mb-8">5 min read &middot; 20 February 2026</p>
+<img class="w-full aspect-[16/9] object-cover mb-12" alt="Raw milk cheese production" src="https://images.unsplash.com/photo-1559561853-08451507cbe7?w=1200&q=80"/>
+<div class="font-body font-light text-[#4F471F]/90 text-base md:text-lg leading-[1.85] space-y-6">
+<p class="font-headline font-medium text-lg md:text-xl italic text-[#4F471F]">The great milk debate explained — why raw milk creates cheeses of extraordinary depth, and when pasteurised versions hold their own.</p>
+<div class="w-16 h-[1px] bg-[#4F471F]/20 mx-auto my-8"></div>
+<p>Every cheese begins as milk, and the treatment of that milk before cheesemaking is one of the most consequential decisions a producer makes. The choice between raw and pasteurised milk shapes everything — flavour complexity, texture, ageing potential, and even the cultural identity of the final cheese.</p>
+<p>Raw milk (lait cru) is milk that has not been heated above 40&deg;C. It arrives in the vat teeming with native bacteria, yeasts, and enzymes — a living ecosystem shaped by the animal's diet, the season, and the local environment. These microorganisms are the engine of flavour development.</p>
+<p>Pasteurisation, developed by Louis Pasteur in the 1860s, heats milk to at least 72&deg;C for fifteen seconds. This kills pathogenic bacteria — a genuine food safety benefit — but it also destroys most of the beneficial microflora. To make cheese from pasteurised milk, producers must add commercial starter cultures back in.</p>
+<p>The flavour difference is real and measurable. Studies comparing raw and pasteurised versions of the same cheese consistently find that raw-milk cheeses develop more complex flavour profiles over time. A raw-milk Comt&eacute; aged for eighteen months will exhibit layers of hazelnut, dried apricot, and caramelised onion that its pasteurised counterpart simply cannot reach.</p>
+<p>This does not mean pasteurised cheeses are bad — far from it. Brillat-Savarin, one of the most luxurious triple-cream cheeses, is traditionally made with pasteurised milk, and its richness is extraordinary. Fresh cheeses like burrata and mozzarella are excellent pasteurised. The question is not better or worse but what each approach makes possible.</p>
+<p>At mima's, our boards feature both. We believe in letting the cheese speak for itself — and telling you exactly what you are tasting.</p>
+</div>
+</section>
+</div>
+
+<!-- Article: How to Read a Cheese Label -->
+<div class="article-detail" id="article-how-to-read-a-cheese-label">
+<section class="max-w-3xl mx-auto px-8 pt-8 pb-20">
+<button onclick="hideArticle()" class="font-label uppercase tracking-widest text-xs text-[#4F471F]/60 hover:text-[#800314] transition-colors mb-12 inline-block">&larr; Back to Journal</button>
+<span class="font-label uppercase tracking-widest text-[10px] text-[#800314] font-semibold block mb-4">Cheese 101</span>
+<p class="font-script text-[#800314] text-2xl md:text-3xl lowercase mb-4">d&eacute;coder l'&eacute;tiquette</p>
+<h1 class="font-headline font-semibold text-3xl md:text-4xl lg:text-5xl text-[#4F471F] leading-tight mb-6">How to Read a Cheese Label Like a Pro</h1>
+<p class="font-body font-light text-[#4F471F]/50 text-xs uppercase tracking-wider mb-8">4 min read &middot; 12 February 2026</p>
+<img class="w-full aspect-[16/9] object-cover mb-12" alt="Cheese labels and AOP stamps" src="https://images.unsplash.com/photo-1589881133825-bbb3b9471b1b?w=1200&q=80"/>
+<div class="font-body font-light text-[#4F471F]/90 text-base md:text-lg leading-[1.85] space-y-6">
+<p class="font-headline font-medium text-lg md:text-xl italic text-[#4F471F]">AOP, fermier, lait cru — the labels on artisanal cheese carry a wealth of information if you know how to read them.</p>
+<div class="w-16 h-[1px] bg-[#4F471F]/20 mx-auto my-8"></div>
+<p>An artisanal cheese label is a compressed biography — origin, method, milk type, and legal status, all encoded in a few words and symbols. Learning to read these labels transforms a cheese counter from an overwhelming wall of unfamiliar names into a map you can navigate with confidence.</p>
+<p><strong>AOP</strong> (Appellation d'Origine Prot&eacute;g&eacute;e) is the gold standard. This European designation certifies that a cheese is made in a specific geographic region, using prescribed methods and local ingredients. A Comt&eacute; AOP must be made in the Jura mountains from the milk of Montb&eacute;liarde or French Simmental cows, aged on spruce boards for a minimum of four months. No exceptions.</p>
+<p><strong>Fermier</strong> means the cheese was made on the farm where the milk was produced — the most artisanal designation possible. The cheesemaker controls the entire chain from animal to wheel. <strong>Artisanal</strong> is a step broader: the milk may come from neighbouring farms, but production remains small-scale and handmade.</p>
+<p><strong>Lait cru</strong> (raw milk) and <strong>lait pasteuris&eacute;</strong> (pasteurised milk) tell you about the milk treatment. Some AOP cheeses — Brie de Meaux, Camembert de Normandie, Roquefort — require raw milk by law.</p>
+<p>The milk source matters too. <strong>Vache</strong> (cow), <strong>brebis</strong> (sheep), <strong>ch&egrave;vre</strong> (goat), and <strong>bufflonne</strong> (buffalo) each produce milk with distinct fat content, protein structure, and flavour.</p>
+<p><strong>Affinage</strong> refers to the ageing period and conditions. A label might read 'affin&eacute; 12 mois' — aged twelve months. Longer ageing generally means more concentrated flavour, firmer texture, and the development of those prized amino acid crystals.</p>
+<p>Armed with this vocabulary, you can walk up to any cheese counter in the world and make informed choices. The label is not decoration — it is your guide.</p>
+</div>
+</section>
+</div>
+
+<!-- Article: Texture Guide -->
+<div class="article-detail" id="article-texture-guide-to-cheese">
+<section class="max-w-3xl mx-auto px-8 pt-8 pb-20">
+<button onclick="hideArticle()" class="font-label uppercase tracking-widest text-xs text-[#4F471F]/60 hover:text-[#800314] transition-colors mb-12 inline-block">&larr; Back to Journal</button>
+<span class="font-label uppercase tracking-widest text-[10px] text-[#800314] font-semibold block mb-4">Pairing &amp; Texture</span>
+<p class="font-script text-[#800314] text-2xl md:text-3xl lowercase mb-4">la carte des textures</p>
+<h1 class="font-headline font-semibold text-3xl md:text-4xl lg:text-5xl text-[#4F471F] leading-tight mb-6">Soft, Hard &amp; Everything Between: A Texture Guide to Cheese</h1>
+<p class="font-body font-light text-[#4F471F]/50 text-xs uppercase tracking-wider mb-8">6 min read &middot; 12 March 2026</p>
+<img class="w-full aspect-[16/9] object-cover mb-12" alt="Cheese texture varieties" src="https://images.unsplash.com/photo-1539024511553-58bbcf23dfd7?w=1200&q=80"/>
+<div class="font-body font-light text-[#4F471F]/90 text-base md:text-lg leading-[1.85] space-y-6">
+<p class="font-headline font-medium text-lg md:text-xl italic text-[#4F471F]">Texture is the overlooked dimension of cheese. From spoonable to crumbling to crystalline — understanding texture changes how you build a board.</p>
+<div class="w-16 h-[1px] bg-[#4F471F]/20 mx-auto my-8"></div>
+<p>We talk endlessly about cheese flavour, but texture is what your mouth notices first. Before a single taste receptor fires, your palate is reading the physical structure of what you have bitten into — is it creamy, chalky, elastic, crumbly, crystalline? Texture is the overlooked foundation of the cheese experience.</p>
+<p><strong>Spoonable textures</strong> are the softest. A perfectly ripe Mont d'Or or a runny &Eacute;poisses barely holds its shape. These cheeses have high moisture content and active surface moulds that break down the protein structure from the outside in. Serving temperature matters enormously: straight from the fridge, these cheeses are stiff and muted; at room temperature, they come alive.</p>
+<p><strong>Creamy textures</strong> — Brie, Camembert, Brillat-Savarin — yield easily under a knife but hold their shape on a board. Triple-cream cheeses push fat content above 75% and create a texture that is almost mousse-like. These cheeses coat the palate, lingering long after swallowing.</p>
+<p><strong>Semi-soft cheeses</strong> like Morbier, Reblochon, and young Gouda have a springy, supple quality. They flex without breaking and have a pleasant chew. Semi-soft cheeses are the most versatile on a board: easy to slice, easy to eat, universally appealing.</p>
+<p><strong>Firm cheeses</strong> — Manchego, Tomme de Savoie, Cantal — are pressed more heavily and aged longer. The texture is compact and smooth, sometimes waxy. They slice cleanly and hold up well on a board without sweating or collapsing.</p>
+<p><strong>Hard cheeses</strong> like aged Comt&eacute;, Parmigiano Reggiano, and old Gouda are the densest. Extended ageing removes most moisture and allows protein crystals — tyrosine and leucine — to form. These crystals create that distinctive crunch. Hard cheeses fracture rather than slice; they are best broken into irregular shards.</p>
+<p>A great cheese board always spans at least three textures. The contrast is what makes each bite interesting — moving from a yielding Brie to a crumbly Stilton to a crystalline shard of aged Gouda keeps the palate engaged and curious.</p>
+</div>
+</section>
+</div>
+
+<!-- Article: Creamy + Crunchy -->
+<div class="article-detail" id="article-creamy-cheese-crunchy-pairings">
+<section class="max-w-3xl mx-auto px-8 pt-8 pb-20">
+<button onclick="hideArticle()" class="font-label uppercase tracking-widest text-xs text-[#4F471F]/60 hover:text-[#800314] transition-colors mb-12 inline-block">&larr; Back to Journal</button>
+<span class="font-label uppercase tracking-widest text-[10px] text-[#800314] font-semibold block mb-4">Pairing &amp; Texture</span>
+<p class="font-script text-[#800314] text-2xl md:text-3xl lowercase mb-4">le contraste parfait</p>
+<h1 class="font-headline font-semibold text-3xl md:text-4xl lg:text-5xl text-[#4F471F] leading-tight mb-6">Pairing Creamy Cheeses with Crunchy Accompaniments</h1>
+<p class="font-body font-light text-[#4F471F]/50 text-xs uppercase tracking-wider mb-8">5 min read &middot; 5 March 2026</p>
+<img class="w-full aspect-[16/9] object-cover mb-12" alt="Creamy cheese with crackers and nuts" src="https://images.unsplash.com/photo-1505575967455-40e256f73376?w=1200&q=80"/>
+<div class="font-body font-light text-[#4F471F]/90 text-base md:text-lg leading-[1.85] space-y-6">
+<p class="font-headline font-medium text-lg md:text-xl italic text-[#4F471F]">The secret to a memorable bite is contrast. Learn why creamy cheeses and crunchy accompaniments are the most satisfying pairing on any board.</p>
+<div class="w-16 h-[1px] bg-[#4F471F]/20 mx-auto my-8"></div>
+<p>There is a reason the combination of a ripe Brie with a crisp cracker is so deeply satisfying — and it goes beyond simple taste. The human palate craves textural contrast. When a creamy, yielding cheese meets something hard and crunchy, the brain registers it as more interesting, more complex, and more pleasurable than either element alone.</p>
+<p>Creamy cheeses coat the inside of the mouth with fat, creating a rich, lingering sensation. A crunchy accompaniment breaks through that coating, providing a clean snap that resets the palate. This cycle of coating and clearing is what makes you reach for another bite.</p>
+<p><strong>Toasted nuts</strong> — walnuts, almonds, hazelnuts — bring an oily, warm crunch that complements rather than competes with cheese fat. A walnut with Brillat-Savarin is a classic: two types of richness meeting with just enough textural difference.</p>
+<p><strong>Crackers and crostini</strong> provide a neutral, dry crunch. They are vehicles more than partners — their job is to deliver the cheese to your mouth while adding structure.</p>
+<p><strong>Fresh vegetables</strong> offer a different crunch entirely — one that is wet, cool, and bright. Radish slices with a washed rind cheese, celery with blue cheese, or cucumber with ch&egrave;vre all work because the vegetable's water content provides a refreshing counterpoint. This is especially welcome in Dubai's warmer months.</p>
+<p><strong>Dried fruits</strong> bridge the gap between crunch and chew. A dried fig or apricot has a crystallised sugar exterior that snaps slightly, then yields into chewy sweetness. Paired with a soft, tangy goat cheese, the contrast hits every axis.</p>
+<p>When building your board, place crunchy elements directly adjacent to the softest cheeses. This visual proximity becomes an invitation — guests instinctively combine what sits side by side.</p>
+</div>
+</section>
+</div>
+
+<!-- Article: Crumbly Meets Smooth -->
+<div class="article-detail" id="article-crumbly-meets-smooth">
+<section class="max-w-3xl mx-auto px-8 pt-8 pb-20">
+<button onclick="hideArticle()" class="font-label uppercase tracking-widest text-xs text-[#4F471F]/60 hover:text-[#800314] transition-colors mb-12 inline-block">&larr; Back to Journal</button>
+<span class="font-label uppercase tracking-widest text-[10px] text-[#800314] font-semibold block mb-4">Pairing &amp; Texture</span>
+<p class="font-script text-[#800314] text-2xl md:text-3xl lowercase mb-4">l'art du contraste</p>
+<h1 class="font-headline font-semibold text-3xl md:text-4xl lg:text-5xl text-[#4F471F] leading-tight mb-6">Crumbly Meets Smooth: Contrast Pairing on Your Board</h1>
+<p class="font-body font-light text-[#4F471F]/50 text-xs uppercase tracking-wider mb-8">5 min read &middot; 25 February 2026</p>
+<img class="w-full aspect-[16/9] object-cover mb-12" alt="Contrasting cheese textures" src="https://images.unsplash.com/photo-1573662735457-3bcb94d09e10?w=1200&q=80"/>
+<div class="font-body font-light text-[#4F471F]/90 text-base md:text-lg leading-[1.85] space-y-6">
+<p class="font-headline font-medium text-lg md:text-xl italic text-[#4F471F]">A board with one texture is forgettable. A board with deliberate textural contrasts is unforgettable. Here is how to engineer that contrast.</p>
+<div class="w-16 h-[1px] bg-[#4F471F]/20 mx-auto my-8"></div>
+<p>The most common mistake on a cheese board is textural monotony. Five semi-firm cheeses, all sliced into identical rectangles, all at the same moisture level — technically correct, experientially flat. The boards that people remember are built on deliberate textural contrast.</p>
+<p>Start with a crumbly cheese. Aged Cheshire, Lancashire, or a well-matured Stilton break apart into uneven, cragged pieces. Their dry, open texture means they dissolve quickly on the tongue, releasing concentrated flavour in a burst.</p>
+<p>Against that, set something impossibly smooth. A ripe Brillat-Savarin, barely holding its shape, or a spoonable Vacherin Mont d'Or. Your palate moves between two completely different physical experiences, and each one makes the other more vivid.</p>
+<p>The accompaniments amplify this game. Pair your crumbly cheese with something sticky — a spoonful of membrillo, a drizzle of thick honey, or a fig compote. The sticky element binds the crumbles together in your mouth, creating a third texture.</p>
+<p>For your smooth cheese, go the other direction. Crisp lavash, seeded crackers, or toasted breadsticks provide the structural contrast that a soft cheese needs.</p>
+<p>The arrangement on the board matters. Place textural opposites near each other — crumbly Stilton beside a pot of honey beside creamy Brie beside a stack of crackers. This creates a visual and gustatory journey that flows naturally.</p>
+<p>One last principle: temperature is texture. A cold cheese is always firmer than the same cheese at room temperature. Always bring your board out at least thirty minutes before serving.</p>
+</div>
+</section>
+</div>
+
+<!-- Article: Cheese + Honey, Jams & Chutneys -->
+<div class="article-detail" id="article-cheese-honey-jams-chutneys">
+<section class="max-w-3xl mx-auto px-8 pt-8 pb-20">
+<button onclick="hideArticle()" class="font-label uppercase tracking-widest text-xs text-[#4F471F]/60 hover:text-[#800314] transition-colors mb-12 inline-block">&larr; Back to Journal</button>
+<span class="font-label uppercase tracking-widest text-[10px] text-[#800314] font-semibold block mb-4">Pairing &amp; Texture</span>
+<p class="font-script text-[#800314] text-2xl md:text-3xl lowercase mb-4">le mariage sucr&eacute;-sal&eacute;</p>
+<h1 class="font-headline font-semibold text-3xl md:text-4xl lg:text-5xl text-[#4F471F] leading-tight mb-6">How to Pair Cheese with Honey, Jams &amp; Chutneys</h1>
+<p class="font-body font-light text-[#4F471F]/50 text-xs uppercase tracking-wider mb-8">5 min read &middot; 18 February 2026</p>
+<img class="w-full aspect-[16/9] object-cover mb-12" alt="Cheese with honey and preserves" src="https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?w=1200&q=80"/>
+<div class="font-body font-light text-[#4F471F]/90 text-base md:text-lg leading-[1.85] space-y-6">
+<p class="font-headline font-medium text-lg md:text-xl italic text-[#4F471F]">Sweet meets savoury — the timeless combination that elevates every cheese board. A guide to choosing the right condiment for every cheese.</p>
+<div class="w-16 h-[1px] bg-[#4F471F]/20 mx-auto my-8"></div>
+<p>The pairing of cheese with something sweet is one of the oldest flavour traditions in the world. Roman feasts featured fresh cheese drizzled with honey. French farmers have eaten Roquefort with fig jam for centuries. The combination works because sweetness tempers salt and fat, creating a balanced bite.</p>
+<p><strong>Honey</strong> is the most versatile sweet pairing. Light, floral honeys (acacia, orange blossom) pair with delicate cheeses: fresh ch&egrave;vre, young Brie, ricotta. Darker honeys (chestnut, buckwheat, wildflower) stand up to stronger cheeses: aged Comt&eacute;, Manchego, blue varieties.</p>
+<p><strong>Jams and preserves</strong> add fruit flavour alongside sweetness. Fig jam is the classic — its dense, seedy sweetness works with almost any cheese. Apricot preserves are brilliant with washed rinds. Cherry jam with aged Gouda, quince paste (membrillo) with Manchego — these are time-tested combinations.</p>
+<p><strong>Chutneys</strong> bring acidity and spice into the equation. An onion marmalade transforms a simple Cheddar into something extraordinary. Tomato chutney works alongside semi-hard cheeses. The key difference: chutneys have enough acidity and spice to act as a palate cleanser between bites.</p>
+<p>The textural dimension matters as much as the flavour. A runny honey pooled beside a cheese requires a different approach than a firm block of membrillo sliced alongside it. Both are sweet, but the experience is entirely different.</p>
+<p>A practical rule: one condiment per two cheeses. Too many jars create confusion; too few leave the board sparse. Place each condiment between the two cheeses it pairs with best.</p>
+</div>
+</section>
+</div>
+
+<!-- Article: Nuts, Dried Fruits & Cheese -->
+<div class="article-detail" id="article-nuts-dried-fruits-cheese">
+<section class="max-w-3xl mx-auto px-8 pt-8 pb-20">
+<button onclick="hideArticle()" class="font-label uppercase tracking-widest text-xs text-[#4F471F]/60 hover:text-[#800314] transition-colors mb-12 inline-block">&larr; Back to Journal</button>
+<span class="font-label uppercase tracking-widest text-[10px] text-[#800314] font-semibold block mb-4">Pairing &amp; Texture</span>
+<p class="font-script text-[#800314] text-2xl md:text-3xl lowercase mb-4">le croquant et le moelleux</p>
+<h1 class="font-headline font-semibold text-3xl md:text-4xl lg:text-5xl text-[#4F471F] leading-tight mb-6">Nuts, Dried Fruits &amp; Cheese: Building Texture into Every Bite</h1>
+<p class="font-body font-light text-[#4F471F]/50 text-xs uppercase tracking-wider mb-8">4 min read &middot; 10 February 2026</p>
+<img class="w-full aspect-[16/9] object-cover mb-12" alt="Nuts and dried fruits arrangement" src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=1200&q=80"/>
+<div class="font-body font-light text-[#4F471F]/90 text-base md:text-lg leading-[1.85] space-y-6">
+<p class="font-headline font-medium text-lg md:text-xl italic text-[#4F471F]">Nuts and dried fruits are not decoration — they are essential textural partners. Learn how to choose and place them for maximum impact.</p>
+<div class="w-16 h-[1px] bg-[#4F471F]/20 mx-auto my-8"></div>
+<p>Too often, nuts and dried fruits are scattered across a cheese board as afterthoughts. This misses their true purpose. Nuts and dried fruits are textural instruments, and when chosen with intention, they transform the eating experience.</p>
+<p><strong>Walnuts</strong> are the quintessential cheese nut. Their bitterness balances sweetness, their oily crunch complements creaminess. A walnut half pressed into the surface of a ripe Brillat-Savarin is one of the simplest and most perfect bites. <strong>Marcona almonds</strong> — roasted, salted — are ideal alongside Manchego. <strong>Hazelnuts</strong>, sweet and toasty, belong next to Comt&eacute; and Gruy&egrave;re.</p>
+<p>The state of the nut matters. Raw almonds have a clean, vegetal crunch. Toasted almonds have a deeper, warmer flavour. Candied pecans add sweetness. As a rule, toast your nuts lightly before serving.</p>
+<p><strong>Dried figs</strong> are the most versatile fruit: their honeyed, jammy interior works with everything from mild Brie to aggressive Roquefort. <strong>Dried apricots</strong> bring tartness — excellent with goat cheese. <strong>Dates</strong>, particularly Medjool dates, are a natural companion in Dubai: their caramel richness alongside a salty Manchego creates an addictive sweet-savoury cycle.</p>
+<p><strong>Placement is everything.</strong> Cluster walnut halves beside blue cheese. Fan dried apricots along the edge of a soft goat cheese. Tuck dates into gaps between harder cheeses. Intentional placement removes the guesswork.</p>
+<p>One final rule: proportion. Nuts and fruits should accent, not dominate. The cheese is the star; everything else is supporting cast.</p>
+</div>
+</section>
+</div>
+
+<!-- Article: Arabic Flavours -->
+<div class="article-detail" id="article-cheese-arabic-flavours">
+<section class="max-w-3xl mx-auto px-8 pt-8 pb-20">
+<button onclick="hideArticle()" class="font-label uppercase tracking-widest text-xs text-[#4F471F]/60 hover:text-[#800314] transition-colors mb-12 inline-block">&larr; Back to Journal</button>
+<span class="font-label uppercase tracking-widest text-[10px] text-[#800314] font-semibold block mb-4">Pairing &amp; Texture</span>
+<p class="font-script text-[#800314] text-2xl md:text-3xl lowercase mb-4">saveurs d'orient</p>
+<h1 class="font-headline font-semibold text-3xl md:text-4xl lg:text-5xl text-[#4F471F] leading-tight mb-6">Pairing Cheese with Arabic Flavours: Dates, Za'atar &amp; Saffron</h1>
+<p class="font-body font-light text-[#4F471F]/50 text-xs uppercase tracking-wider mb-8">6 min read &middot; 5 February 2026</p>
+<img class="w-full aspect-[16/9] object-cover mb-12" alt="Middle Eastern spices and cheese" src="https://images.unsplash.com/photo-1547483238-f400e65ccd56?w=1200&q=80"/>
+<div class="font-body font-light text-[#4F471F]/90 text-base md:text-lg leading-[1.85] space-y-6">
+<p class="font-headline font-medium text-lg md:text-xl italic text-[#4F471F]">The spice souks of the Middle East hold unexpected treasures for cheese pairing. Discover how za'atar, saffron, dates, and more create extraordinary combinations.</p>
+<div class="w-16 h-[1px] bg-[#4F471F]/20 mx-auto my-8"></div>
+<p>European cheese tradition and Middle Eastern flavour culture might seem worlds apart, but they share a fundamental principle: the best food is built on contrast and balance. At mima's, we live at this intersection — curating European artisanal cheeses and pairing them with the flavours that define our home in the Gulf.</p>
+<p><strong>Dates</strong> are the starting point. Medjool dates, with their caramel-soft flesh and fudgy sweetness, are one of the most natural cheese partners. Try a fresh Medjool split open with a sliver of aged Comt&eacute; tucked inside — the combination of caramel, hazelnut, and butterscotch is remarkable. Khalas dates, drier and more honeyed, work beautifully with Manchego and Pecorino.</p>
+<p><strong>Za'atar</strong> — the wild thyme blend mixed with sumac, sesame, and salt — brings herbal brightness that cuts through rich, fatty cheeses. Dust za'atar over a warm Brie, mix it into olive oil for dipping with bread and Gruy&egrave;re, or press it into the surface of a fresh goat cheese round.</p>
+<p><strong>Saffron</strong> is more subtle. Its floral, honey-like warmth pairs with cheeses that have their own sweetness — young Gouda, Beaufort, and milder Comt&eacute;s. A saffron-infused honey drizzled over a cheese board adds both colour and a delicate perfume.</p>
+<p><strong>Rose water and orange blossom</strong>, staples of Gulf pastry, translate beautifully to the cheese course. A few drops of rose water in a fig compote create a floral sweetness that transforms blue cheese. Orange blossom honey beside a triple-cream Brillat-Savarin is ethereal.</p>
+<p>Do not overlook <strong>Arabic bread</strong> as a textural partner. Khubz, lightly charred and torn into shards, provides a sturdy, smoky vehicle for soft cheeses. Regag (paper-thin crispy bread) shatters against creamy pastes in a way no European cracker can replicate.</p>
+<p>The philosophy is simple: honour both traditions. Let the cheese be unapologetically European in its craft, and let the accompaniments be unapologetically Arabian in their warmth and generosity. The board becomes a meeting point — which is, after all, what sharing cheese has always been about.</p>
+</div>
+</section>
+</div>
+
+<!-- Article: Tea, Coffee & Juices -->
+<div class="article-detail" id="article-cheese-tea-coffee-juices">
+<section class="max-w-3xl mx-auto px-8 pt-8 pb-20">
+<button onclick="hideArticle()" class="font-label uppercase tracking-widest text-xs text-[#4F471F]/60 hover:text-[#800314] transition-colors mb-12 inline-block">&larr; Back to Journal</button>
+<span class="font-label uppercase tracking-widest text-[10px] text-[#800314] font-semibold block mb-4">Pairing &amp; Texture</span>
+<p class="font-script text-[#800314] text-2xl md:text-3xl lowercase mb-4">accords inattendus</p>
+<h1 class="font-headline font-semibold text-3xl md:text-4xl lg:text-5xl text-[#4F471F] leading-tight mb-6">Pairing Cheese with Tea, Coffee &amp; Fresh Juices</h1>
+<p class="font-body font-light text-[#4F471F]/50 text-xs uppercase tracking-wider mb-8">5 min read &middot; 28 January 2026</p>
+<img class="w-full aspect-[16/9] object-cover mb-12" alt="Tea and coffee with cheese" src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=1200&q=80"/>
+<div class="font-body font-light text-[#4F471F]/90 text-base md:text-lg leading-[1.85] space-y-6">
+<p class="font-headline font-medium text-lg md:text-xl italic text-[#4F471F]">Move beyond the obvious. Tea, coffee, and fresh juices offer surprising and sophisticated pairing possibilities with artisanal cheese.</p>
+<div class="w-16 h-[1px] bg-[#4F471F]/20 mx-auto my-8"></div>
+<p>The idea of pairing cheese with beverages beyond the obvious is gaining momentum. Tea, coffee, and fresh juices each bring unique flavour profiles and different textures in the mouth that interact with cheese in surprising ways.</p>
+<p><strong>Tea</strong> is perhaps the most natural non-traditional cheese companion. Its tannins cut through fat. Green tea — light, grassy — pairs with fresh and bloomy-rind cheeses. Oolong, with its roasted complexity, stands up to semi-hard cheeses. Black tea, strong and malty, matches hard, aged cheeses.</p>
+<p><strong>Arabic tea traditions</strong> add another dimension. Karak chai — sweet, spiced, milky — creates a rich backdrop for saltier cheeses. The cardamom, saffron, and cinnamon complement the nuttiness of aged Gruy&egrave;re. Moroccan mint tea, bracingly fresh, resets the palate between pungent washed-rind cheeses.</p>
+<p><strong>Coffee</strong> works differently. Its bitterness and roasted character create a bridge to cheeses with similar flavour compounds — the caramelised notes in aged Parmigiano, the toasted-nut quality of Comt&eacute;. A simple espresso alongside a shard of 36-month Parmigiano is a revelation. Lighter, fruitier roasts pair with milder cheeses.</p>
+<p><strong>Fresh juices</strong> offer brightness and acidity. Pear juice — smooth, sweet — is classic with blue cheese. Apple juice works similarly, its crisp acidity slicing through the fat of Brie and Camembert. Pomegranate juice, tangy and jewel-toned, brings a tartness that challenges bold cheeses.</p>
+<p>The key principle across all three is temperature contrast. Hot tea and coffee warm the palate, making cheese fats more fluid. Cold juices firm up the fats. Both approaches work; the choice depends on the mood of the moment.</p>
+</div>
+</section>
+</div>
+
+<!-- Article: Bread & Crackers -->
+<div class="article-detail" id="article-bread-crackers-texture-matching">
+<section class="max-w-3xl mx-auto px-8 pt-8 pb-20">
+<button onclick="hideArticle()" class="font-label uppercase tracking-widest text-xs text-[#4F471F]/60 hover:text-[#800314] transition-colors mb-12 inline-block">&larr; Back to Journal</button>
+<span class="font-label uppercase tracking-widest text-[10px] text-[#800314] font-semibold block mb-4">Pairing &amp; Texture</span>
+<p class="font-script text-[#800314] text-2xl md:text-3xl lowercase mb-4">le support parfait</p>
+<h1 class="font-headline font-semibold text-3xl md:text-4xl lg:text-5xl text-[#4F471F] leading-tight mb-6">The Role of Bread &amp; Crackers: Matching Texture to Cheese</h1>
+<p class="font-body font-light text-[#4F471F]/50 text-xs uppercase tracking-wider mb-8">4 min read &middot; 20 January 2026</p>
+<img class="w-full aspect-[16/9] object-cover mb-12" alt="Artisan bread and crackers" src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=1200&q=80"/>
+<div class="font-body font-light text-[#4F471F]/90 text-base md:text-lg leading-[1.85] space-y-6">
+<p class="font-headline font-medium text-lg md:text-xl italic text-[#4F471F]">A great vehicle is invisible — it delivers the cheese perfectly without competing. Here is how to match bread and crackers to every cheese on your board.</p>
+<div class="w-16 h-[1px] bg-[#4F471F]/20 mx-auto my-8"></div>
+<p>Bread and crackers are the most underestimated elements on a cheese board. Most people grab whatever is in the cupboard and scatter it around the edges. But the vehicle you choose directly affects how the cheese tastes.</p>
+<p>The fundamental rule is <strong>textural balance</strong>. Soft cheeses need firm vehicles; hard cheeses need yielding ones. A runny &Eacute;poisses on a flimsy water cracker is a structural disaster. The same &Eacute;poisses on a thick crostini, toasted until golden, is a composed, satisfying bite.</p>
+<p>Conversely, a hard Parmigiano on a thick slice of dense bread is overkill. A thin, crisp grissino or a delicate cracker lets the cheese itself provide the texture.</p>
+<p><strong>Sourdough</strong> is the most versatile bread for cheese. Its gentle acidity mirrors the tanginess in many cheeses, its open crumb provides pockets that trap soft pastes, and its crust adds crunch. <strong>Baguette</strong>, with its shatteringly crisp crust and pillowy interior, is the classic French choice.</p>
+<p><strong>Flavoured crackers</strong> require caution. A rosemary cracker can enhance a mild Pecorino but overpower a delicate ch&egrave;vre. The safest approach: offer one neutral vehicle and one flavoured option, letting guests choose.</p>
+<p>Do not forget the option of <strong>no vehicle at all</strong>. Many hard cheeses — Comt&eacute;, Parmigiano, aged Gouda — are best eaten alone, broken into shards. Adding bread dilutes their concentrated flavour. Include a section of the board where cheese stands unaccompanied, and trust your guests to notice the difference.</p>
+</div>
+</section>
+</div>
+
+<!-- Newsletter Section -->
+<section class="w-full bg-[#F0EEE4] py-32 px-12">
+<div class="max-w-2xl mx-auto text-center space-y-8">
+<p class="font-script text-primary text-3xl md:text-4xl mb-3 lowercase">stay inspired</p>
+<h2 class="font-['Montserrat'] font-semibold uppercase tracking-[0.2em] text-[#4F471F] text-base md:text-lg mb-6">Join Our Mailing List</h2>
+<p class="font-['Montserrat'] font-light text-[#4F471F]/60 text-sm md:text-base leading-relaxed">Pairing tips, seasonal specials, and stories from the atelier.</p>
+<form class="flex flex-col md:flex-row gap-4 mt-12" onsubmit="event.preventDefault()">
+<input class="flex-grow bg-transparent border-b-2 border-[#4F471F]/20 focus:border-[#800314] outline-none py-3 px-2 font-body text-[#4F471F] placeholder:text-[#4F471F]/40 transition-colors" placeholder="Your Email Address" type="email"/>
+<button class="bg-[#800314] text-[#ffffff] px-10 py-4 font-label uppercase tracking-widest text-xs font-bold hover:bg-[#580009] transition-colors rounded-sm shadow-lg" type="submit">Subscribe</button>
+</form>
+<p class="font-body font-light text-[10px] uppercase tracking-widest text-[#4F471F]/50 mt-8">We respect your privacy. Unsubscribe anytime.</p>
+</div>
+</section>
+</main>
+<footer class="bg-[#FCFAF0] relative z-10">
+<div class="max-w-7xl mx-auto px-8 pt-20 pb-12">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+<div class="flex flex-col">
+<a class="mimas-logo lowercase text-3xl text-[#4F471F]" href="../">mima's</a>
+<p class="font-['Montserrat'] font-light text-[#4F471F]/70 text-sm leading-relaxed mt-4 max-w-[220px]">Curating original cheese pairings that awaken the senses, spark curiosity, and inspire connection.</p>
+<div class="flex gap-4 mt-6">
+<a href="#" class="w-10 h-10 rounded-full border border-[#4F471F]/20 flex items-center justify-center text-[#4F471F] hover:text-[#800314] hover:border-[#800314] transition-colors" aria-label="Instagram">
+<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+</a>
+<a href="#" class="w-10 h-10 rounded-full border border-[#4F471F]/20 flex items-center justify-center text-[#4F471F] hover:text-[#800314] hover:border-[#800314] transition-colors" aria-label="Facebook">
+<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+</a>
+</div>
+</div>
+<div class="flex flex-col">
+<h4 class="font-['Montserrat'] font-semibold uppercase tracking-[0.15em] text-[#4F471F] text-xs mb-6">Navigation</h4>
+<nav class="flex flex-col gap-4">
+<a class="font-['Montserrat'] font-light text-[#4F471F]/80 text-sm hover:text-[#800314] transition-colors" href="story.html">Our Story</a>
+<a class="font-['Montserrat'] font-light text-[#4F471F]/80 text-sm hover:text-[#800314] transition-colors" href="boards.html">Our Boards</a>
+<a class="font-['Montserrat'] font-light text-[#4F471F]/80 text-sm hover:text-[#800314] transition-colors" href="services.html">Services</a>
+<a class="font-['Montserrat'] font-light text-[#4F471F]/80 text-sm hover:text-[#800314] transition-colors" href="journal.html">Journal</a>
+</nav>
+</div>
+<div class="flex flex-col">
+<h4 class="font-['Montserrat'] font-semibold uppercase tracking-[0.15em] text-[#4F471F] text-xs mb-6">Contact</h4>
+<div class="flex flex-col gap-4">
+<a href="mailto:hello@mimas.ae" class="flex items-center gap-3 font-['Montserrat'] font-light text-[#4F471F]/80 text-sm hover:text-[#800314] transition-colors">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+hello@mimas.ae
+</a>
+<a href="tel:+97150000000" class="flex items-center gap-3 font-['Montserrat'] font-light text-[#4F471F]/80 text-sm hover:text-[#800314] transition-colors">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
++971 50 000 0000
+</a>
+<div class="flex items-start gap-3 font-['Montserrat'] font-light text-[#4F471F]/80 text-sm">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 flex-shrink-0"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+<span>Dubai, United<br/>Arab Emirates</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col">
+<h4 class="font-['Montserrat'] font-semibold uppercase tracking-[0.15em] text-[#4F471F] text-xs mb-6">Newsletter</h4>
+<p class="font-['Montserrat'] font-light text-[#4F471F]/70 text-sm leading-relaxed mb-6">Join our community for pairing tips and seasonal updates.</p>
+<form class="flex flex-col gap-3" onsubmit="event.preventDefault()">
+<input type="email" placeholder="Your email" class="footer-email-input" />
+<button type="submit" class="font-['Montserrat'] font-medium uppercase tracking-[0.15em] text-[13px] text-white bg-[#800314] hover:bg-[#800314]/90 transition-colors py-3 px-6 mt-1" style="border-radius: 0.125rem;">Subscribe</button>
+</form>
+</div>
+</div>
+</div>
+<div class="border-t border-[#4F471F]/10">
+<div class="max-w-7xl mx-auto px-8 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-['Montserrat'] font-medium uppercase tracking-[0.15em] text-[10px] text-[#4F471F]/50">&copy; 2026 mima's. All rights reserved.</p>
+<div class="flex gap-8">
+<a class="font-['Montserrat'] font-medium uppercase tracking-[0.15em] text-[10px] text-[#4F471F]/50 hover:text-[#800314] transition-colors" href="#">Legal Notice</a>
+<a class="font-['Montserrat'] font-medium uppercase tracking-[0.15em] text-[10px] text-[#4F471F]/50 hover:text-[#800314] transition-colors" href="#">Cookie Policy</a>
+</div>
+</div>
+</div>
+</footer>
+
+<script>
+// Category filtering
+function filterArticles(category, btn) {
+    // Update button states
+    document.querySelectorAll('.filter-btn').forEach(function(b) {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', 'false');
+        b.style.backgroundColor = 'transparent';
+        b.style.color = '#4F471F';
+        b.style.borderColor = '';
+    });
+    btn.classList.add('active');
+    btn.setAttribute('aria-pressed', 'true');
+    btn.style.backgroundColor = '#800314';
+    btn.style.color = '#FCFAF0';
+    btn.style.borderColor = '#800314';
+
+    // Filter cards
+    var cards = document.querySelectorAll('.article-card');
+    cards.forEach(function(card) {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+            card.style.display = '';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+
+// Show article detail
+function showArticle(slug) {
+    document.getElementById('article-listing').classList.add('hidden');
+    var detail = document.getElementById('article-' + slug);
+    if (detail) {
+        detail.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+}
+
+// Hide article detail, return to listing
+function hideArticle() {
+    document.querySelectorAll('.article-detail').forEach(function(d) {
+        d.classList.remove('active');
+    });
+    document.getElementById('article-listing').classList.remove('hidden');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Handle browser back button
+window.addEventListener('popstate', function() {
+    var activeDetail = document.querySelector('.article-detail.active');
+    if (activeDetail) {
+        hideArticle();
+    }
+});
+
+// Push state when opening article for back button support
+var origShowArticle = showArticle;
+showArticle = function(slug) {
+    history.pushState({ article: slug }, '', '#' + slug);
+    origShowArticle(slug);
+};
+
+// Handle direct hash navigation
+window.addEventListener('DOMContentLoaded', function() {
+    var hash = window.location.hash.replace('#', '');
+    if (hash) {
+        var detail = document.getElementById('article-' + hash);
+        if (detail) {
+            document.getElementById('article-listing').classList.add('hidden');
+            detail.classList.add('active');
+        }
+    }
+
+    // Scroll reveal animation
+    var reveals = document.querySelectorAll('.reveal');
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(function(el) { observer.observe(el); });
+});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4/dist/umd/supabase.min.js"></script>
+<script src="../js/supabase-config.js"></script>
+<script src="../js/mimas-cart.js"></script>
+</body></html>

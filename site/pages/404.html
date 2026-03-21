@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&amp;family=Sacramento&amp;family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&amp;family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-lowest": "#ffffff",
+              "error": "#ba1a1a",
+              "tertiary": "#00284d",
+              "on-primary-container": "#ff847f",
+              "inverse-surface": "#30312a",
+              "surface-tint": "#b02d31",
+              "secondary-fixed": "#f0e3ad",
+              "surface-bright": "#fbf9ef",
+              "surface-container-low": "#f6f4ea",
+              "secondary-container": "#f0e3ad",
+              "primary-fixed": "#ffdad7",
+              "background": "#fbf9ef",
+              "surface-dim": "#dcdad1",
+              "on-secondary-container": "#6e6539",
+              "surface-container": "#f0eee4",
+              "on-tertiary": "#ffffff",
+              "on-surface": "#1b1c16",
+              "on-error": "#ffffff",
+              "error-container": "#ffdad6",
+              "inverse-on-surface": "#f3f1e7",
+              "surface": "#fbf9ef",
+              "surface-container-high": "#eae8df",
+              "on-secondary-fixed-variant": "#4f471f",
+              "outline": "#8d706e",
+              "on-surface-variant": "#59413f",
+              "tertiary-fixed": "#d3e3ff",
+              "surface-variant": "#e4e3d9",
+              "on-tertiary-container": "#80aae5",
+              "on-primary-fixed": "#410005",
+              "on-background": "#1b1c16",
+              "surface-container-highest": "#e4e3d9",
+              "on-primary": "#ffffff",
+              "tertiary-container": "#003e72",
+              "on-primary-fixed-variant": "#8e111c",
+              "tertiary-fixed-dim": "#a3c9ff",
+              "primary": "#580009",
+              "on-tertiary-fixed": "#001c39",
+              "primary-container": "#800314",
+              "secondary": "#675f34",
+              "outline-variant": "#e0bfbc",
+              "on-secondary-fixed": "#211b00",
+              "on-error-container": "#93000a",
+              "secondary-fixed-dim": "#d3c793",
+              "primary-fixed-dim": "#ffb3af",
+              "on-tertiary-fixed-variant": "#14487c",
+              "on-secondary": "#ffffff",
+              "inverse-primary": "#ffb3af"
+            },
+            fontFamily: {
+              "headline": ["Montserrat", "sans-serif"],
+              "body": ["Montserrat", "sans-serif"],
+              "label": ["Montserrat", "sans-serif"],
+              "script": ["Floralis Couture", "Sacramento", "cursive"],
+              "logo": ["Cormorant Garamond", "serif"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        @font-face {
+            font-family: 'Floralis Couture';
+            src: url('../fonts/Floralis-Couture.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #FCFAF0;
+            color: #4F471F;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .mimas-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            font-style: normal;
+            letter-spacing: 0.02em;
+            line-height: 1;
+        }
+        .tagline-flavor {
+            font-family: 'Floralis Couture', 'Sacramento', cursive;
+        }
+        .footer-email-input {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid #4F471F40;
+            outline: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            font-size: 0.875rem;
+            color: #4F471F;
+            padding: 8px 0;
+            width: 100%;
+        }
+        .footer-email-input::placeholder {
+            color: #4F471F80;
+        }
+        .footer-email-input:focus {
+            border-bottom-color: #800314;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-primary-container selection:text-white">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#FCFAF0]/80 backdrop-blur-md transition-all duration-300 border-b border-[#4F471F]/5">
+<div class="flex justify-between items-center w-full px-8 py-6 max-w-7xl mx-auto">
+<div class="flex-1">
+<a class="mimas-logo lowercase text-3xl text-[#4F471F] hover:text-[#800314] transition-colors" href="../">mima's</a>
+</div>
+<div class="hidden md:flex items-center gap-12 flex-none">
+<a class="font-['Montserrat'] font-medium uppercase tracking-[0.15em] text-[13px] text-[#4F471F] hover:text-[#800314] transition-colors duration-300" href="story.html">Story</a>
+<a class="font-['Montserrat'] font-medium uppercase tracking-[0.15em] text-[13px] text-[#4F471F] hover:text-[#800314] transition-colors duration-300" href="boards.html">Boards</a>
+<a class="font-['Montserrat'] font-medium uppercase tracking-[0.15em] text-[13px] text-[#4F471F] hover:text-[#800314] transition-colors duration-300" href="services.html">Services</a>
+<a class="font-['Montserrat'] font-medium uppercase tracking-[0.15em] text-[13px] text-[#4F471F] hover:text-[#800314] transition-colors duration-300" href="journal.html">Journal</a>
+<a class="font-['Montserrat'] font-medium uppercase tracking-[0.15em] text-[13px] text-[#4F471F] hover:text-[#800314] transition-colors duration-300" href="contact.html">Contact</a>
+</div>
+<div class="flex-1"></div>
+</div>
+</nav>
+<!-- 404 Content Area -->
+<main class="min-h-screen flex flex-col items-center justify-center pt-24 pb-12 px-6 overflow-hidden relative">
+<!-- Background "404" -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
+<h1 class="font-['Montserrat'] font-bold text-[25rem] md:text-[40rem] text-[#4F471F] opacity-[0.05] leading-none tracking-tighter">
+                404
+            </h1>
+</div>
+<!-- Foreground Content -->
+<div class="relative z-10 flex flex-col items-center text-center max-w-2xl">
+<!-- Decorative Element -->
+<div class="mb-8 scale-110">
+<img alt="Artisanal cheese wheel on a rustic board" class="w-48 h-48 md:w-56 md:h-56 object-cover rounded-full shadow-2xl border-4 border-white shadow-[#4F471F]/10 transform -rotate-3 hover:rotate-0 transition-transform duration-700" data-alt="Close up of a premium artisanal cheese wheel" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuQxI_iTely9ht6YLCwtO_2Qr6ELNyXzDgXFbzokvc1H8RHxEbMsOBXHfu5y_K3u1gAU6fdSYduYnkCmpPC___kBxsP_tOGBHZ4JdejNc91oOoKuOzPDT_7wFhEAVs0vKaO0nWQ8h8NKMUj8OO-QzQXScNZhjCkhr7Q1jE4w9HrW6MIStYDFqOkNrvTM2_l-scj-sNR5UA73VOgf3KqOgAHpVRc816m1uA-fZVxL9lDAIzGV3ng_mX1B9pHkvQ6gweTg1iRVLMoK4O"/>
+</div>
+<!-- Signature Script Overlay -->
+<h2 class="font-script text-5xl md:text-7xl text-[#800314] mb-4 -mt-10 md:-mt-14 relative">
+                This page has been paired away
+            </h2>
+<!-- Editorial Description -->
+<p class="font-['Montserrat'] font-light text-[#4F471F] text-lg md:text-xl leading-relaxed mb-12 tracking-wide px-4">
+                The page you're looking for doesn't exist or has been moved. <br class="hidden md:block"/>
+                But don't worry — there's plenty more to discover.
+            </p>
+<!-- CTA Buttons -->
+<div class="flex flex-col sm:flex-row gap-6 w-full sm:w-auto px-8">
+<a class="px-10 py-4 bg-gradient-to-br from-[#580009] to-[#800314] text-white font-['Montserrat'] font-medium uppercase tracking-widest text-xs rounded-sm hover:scale-102 transition-all duration-300 shadow-lg shadow-[#800314]/20 flex items-center justify-center" href="../">
+                    Return Home
+                </a>
+<a class="px-10 py-4 border border-[#4F471F]/20 text-[#4F471F] font-['Montserrat'] font-medium uppercase tracking-widest text-xs rounded-sm hover:bg-[#4F471F] hover:text-[#FCFAF0] transition-all duration-300 flex items-center justify-center group" href="boards.html">
+                    Explore Our Boards
+                    <span class="material-symbols-outlined ml-2 text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Subtle Organic Shape Background Accents -->
+<div class="absolute top-1/4 -left-20 w-64 h-64 bg-[#4F471F]/5 rounded-full blur-3xl"></div>
+<div class="absolute bottom-1/4 -right-20 w-96 h-96 bg-[#800314]/5 rounded-full blur-3xl"></div>
+</main>
+<footer class="bg-[#FCFAF0] relative z-10">
+<div class="max-w-7xl mx-auto px-8 pt-20 pb-12">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+<div class="flex flex-col">
+<a class="mimas-logo lowercase text-3xl text-[#4F471F]" href="../">mima's</a>
+<p class="font-['Montserrat'] font-light text-[#4F471F]/70 text-sm leading-relaxed mt-4 max-w-[220px]">Curating original cheese pairings that awaken the senses, spark curiosity, and inspire connection.</p>
+<div class="flex gap-4 mt-6">
+<a href="#" class="w-10 h-10 rounded-full border border-[#4F471F]/20 flex items-center justify-center text-[#4F471F] hover:text-[#800314] hover:border-[#800314] transition-colors" aria-label="Instagram">
+<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+</a>
+<a href="#" class="w-10 h-10 rounded-full border border-[#4F471F]/20 flex items-center justify-center text-[#4F471F] hover:text-[#800314] hover:border-[#800314] transition-colors" aria-label="Facebook">
+<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+</a>
+</div>
+</div>
+<div class="flex flex-col">
+<h4 class="font-['Montserrat'] font-semibold uppercase tracking-[0.15em] text-[#4F471F] text-xs mb-6">Navigation</h4>
+<nav class="flex flex-col gap-4">
+<a class="font-['Montserrat'] font-light text-[#4F471F]/80 text-sm hover:text-[#800314] transition-colors" href="story.html">Our Story</a>
+<a class="font-['Montserrat'] font-light text-[#4F471F]/80 text-sm hover:text-[#800314] transition-colors" href="boards.html">Our Boards</a>
+<a class="font-['Montserrat'] font-light text-[#4F471F]/80 text-sm hover:text-[#800314] transition-colors" href="services.html">Services</a>
+<a class="font-['Montserrat'] font-light text-[#4F471F]/80 text-sm hover:text-[#800314] transition-colors" href="journal.html">Journal</a>
+</nav>
+</div>
+<div class="flex flex-col">
+<h4 class="font-['Montserrat'] font-semibold uppercase tracking-[0.15em] text-[#4F471F] text-xs mb-6">Contact</h4>
+<div class="flex flex-col gap-4">
+<a href="mailto:hello@mimas.ae" class="flex items-center gap-3 font-['Montserrat'] font-light text-[#4F471F]/80 text-sm hover:text-[#800314] transition-colors">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+hello@mimas.ae
+</a>
+<a href="tel:+97150000000" class="flex items-center gap-3 font-['Montserrat'] font-light text-[#4F471F]/80 text-sm hover:text-[#800314] transition-colors">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
++971 50 000 0000
+</a>
+<div class="flex items-start gap-3 font-['Montserrat'] font-light text-[#4F471F]/80 text-sm">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 flex-shrink-0"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+<span>Dubai, United<br/>Arab Emirates</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col">
+<h4 class="font-['Montserrat'] font-semibold uppercase tracking-[0.15em] text-[#4F471F] text-xs mb-6">Newsletter</h4>
+<p class="font-['Montserrat'] font-light text-[#4F471F]/70 text-sm leading-relaxed mb-6">Join our community for pairing tips and seasonal updates.</p>
+<form class="flex flex-col gap-3" onsubmit="event.preventDefault()">
+<input type="email" placeholder="Your email" class="footer-email-input" />
+<button type="submit" class="font-['Montserrat'] font-medium uppercase tracking-[0.15em] text-[13px] text-white bg-[#800314] hover:bg-[#800314]/90 transition-colors py-3 px-6 mt-1" style="border-radius: 0.125rem;">Subscribe</button>
+</form>
+</div>
+</div>
+</div>
+<div class="border-t border-[#4F471F]/10">
+<div class="max-w-7xl mx-auto px-8 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-['Montserrat'] font-medium uppercase tracking-[0.15em] text-[10px] text-[#4F471F]/50">&copy; 2026 mima's. All rights reserved.</p>
+<div class="flex gap-8">
+<a class="font-['Montserrat'] font-medium uppercase tracking-[0.15em] text-[10px] text-[#4F471F]/50 hover:text-[#800314] transition-colors" href="#">Legal Notice</a>
+<a class="font-['Montserrat'] font-medium uppercase tracking-[0.15em] text-[10px] text-[#4F471F]/50 hover:text-[#800314] transition-colors" href="#">Cookie Policy</a>
+</div>
+</div>
+</div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4/dist/umd/supabase.min.js"></script>
+<script src="../js/supabase-config.js"></script>
+<script src="../js/mimas-cart.js"></script>
+</body></html>
